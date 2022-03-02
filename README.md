@@ -2,7 +2,7 @@
 
 Build Your Own Social Media Using Express, Hooks, & MySQL || Postgres for the employees of **Groupomania**.
 
-![logo](./Public/images/icon-left-font.png "logo, GROUPOMANIA")
+![logo](./Openclassrooms/images/icon-left-font.png "logo, GROUPOMANIA")
 
 ## What is PERN Stack?
 
