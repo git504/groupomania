@@ -1,21 +1,20 @@
 # Groupomania
 
-Build Your Own Social Media Using Express, Hooks, & Postgres for the employees of **Groupomania**.
+Build Your Own Social Media Using Express, Hooks, & MySQL || Postgres for the employees of **Groupomania**.
 
 ![logo](./Public/images/icon-left-font.png "logo, GROUPOMANIA")
 
 ## What is PERN Stack?
 
-This stack consists of **PostgreSQL, Express, React and Node.js**.
+This stack consists of **MySQL || Postgres, Express, React and Node.js**.
 
-Combining these techs, one can build a full-stack web application with **CRUD** operations.
+Combining these techs, one can build a full-stack web app with **CRUD** operations on a **MVC** model-view-controller architecture.
 
 ## Set up directory
 
-The **Client** directory contains the React code.
+The **client** directory contains the React code.
 
-The **Server** directory contains the code for the node.js express server.
-
+The **server** directory contains the code for the node.js express server.
 
 cd into both Project Directories in 2 different terminal windows and then install the dependencies
 
@@ -38,8 +37,8 @@ cd into both Project Directories in 2 different terminal windows and then instal
 
 #### 2nd window
 
-    npm run devstart
-    *** devstart runs nodemon at localhost:5000 ***
+    npm run start
+    *** start runs nodemon at localhost:3001 ***
 
 ## Contact the newbie
 
