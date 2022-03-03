@@ -36,7 +36,7 @@ function CreatePost() {
           <label>Title </label>
           <ErrorMessage name="title" component="span" />
           <Field
-            autocomplete="off"
+            autoComplete="off"
             id="inputCreatePost"
             name="title"
             placeholder="ex : Hey !"
@@ -44,7 +44,7 @@ function CreatePost() {
           <label>Post </label>
           <ErrorMessage name="postText" component="span" />
           <Field
-            autocomplete="off"
+            autoComplete="off"
             id="inputCreatePost"
             name="postText"
             placeholder="ex : Bla bla..."
@@ -52,7 +52,7 @@ function CreatePost() {
           <label>Username </label>
           <ErrorMessage name="username" component="span" />
           <Field
-            autocomplete="off"
+            autoComplete="off"
             id="inputCreatePost"
             name="username"
             placeholder="ex : Rihanna"
