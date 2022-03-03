@@ -9,7 +9,7 @@ function App() {
     <div className="App">
       <Router>
         <div className="navbar">
-          <Link to="createpost">CreatePost</Link>
+          <Link to="createpost">createPost</Link>
           <Link to="/">homePage</Link>
         </div>
         <Routes>
