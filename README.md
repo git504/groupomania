@@ -10,6 +10,14 @@ This stack consists of **MySQL || Postgres, Express, React and Node.js**.
 
 Combining these techs, one can build a full-stack web app with **CRUD** operations on a **MVC** model-view-controller architecture.
 
+## To sum up :
+
+- ReactJS
+- NodeJS
+- ExpressJS
+- MySQL
+- Sequelize
+
 ## Set up directory
 
 The **client** directory contains the React code.
@@ -44,3 +52,11 @@ cd into both Project Directories in 2 different terminal windows and then instal
 
 - [cheapskatePortfolio](https://git504.github.io/cheapskatePortfolio/ "card, FRONTEND REACT")
 - [underdogFoto](https://git504.github.io/underdogF/ "card, FOTO")
+
+## Many thanks
+
+a big thank you to my **coach** **Amouzoun O. Bienvenu**, to openclassrooms and to my professional career advisor
+
+- [His gitHub](https://github.com/benytto888Z "card, COACH OPENCLASSROOMS")
+- [His linkedIn](https://www.linkedin.com/in/omonleye-amouzoun-416015130/ "card, linkedIn")
+- [His homePage](https://creamind.fr/ "card, COACH WEBSITE")
