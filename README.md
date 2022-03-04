@@ -1,4 +1,4 @@
-# Groupomania
+# groupomania
 
 Build Your Own Social Media Using Express, Hooks, & MySQL || Postgres for the employees of **Groupomania**.
 
