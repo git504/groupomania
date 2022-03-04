@@ -15,8 +15,8 @@ function Registration() {
   });
 
   const onSubmit = (data) => {
-    axios.post("http://localhost:3001/auth", data).then((response) => {
-      //console.log(data);
+    axios.post("http://localhost:3001/auth", data).then(() => {
+      console.log(data);
     });
   };
 
@@ -28,24 +28,26 @@ function Registration() {
         validationSchema={validationSchema}
       >
         <Form className="formContainer">
-          <label>Username </label>
+          <label>Username: </label>
           <ErrorMessage name="username" component="span" />
           <Field
             autoComplete="off"
             id="inputCreatePost"
             name="username"
-            placeholder="ex : Rihanna"
+            placeholder="(Ex. John123...)"
           />
-          <label>Password </label>
-          <ErrorMessage name="username" component="span" />
+
+          <label>Password: </label>
+          <ErrorMessage name="password" component="span" />
           <Field
             autoComplete="off"
             type="password"
             id="inputCreatePost"
             name="password"
-            placeholder="ex : Ly45`èàç98hjcHHH"
+            placeholder="Your Password..."
           />
-          <button type="submit">Register</button>
+
+          <button type="submit"> Register</button>
         </Form>
       </Formik>
     </div>

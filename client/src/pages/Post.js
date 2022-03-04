@@ -17,18 +17,29 @@ function Post() {
       setComments(response.data);
     });
   }, [id]);
-  // id ?
 
   const addComment = () => {
     axios
-      .post("http://localhost:3001/comments", {
-        commentBody: newComment,
-        PostId: id,
-      })
+      .post(
+        "http://localhost:3001/comments",
+        {
+          commentBody: newComment,
+          PostId: id,
+        },
+        {
+          headers: {
+            accessToken: sessionStorage.getItem("accessToken"),
+          },
+        }
+      )
       .then((response) => {
-        const commentToAdd = { commentBody: newComment };
-        setComments([...comments, commentToAdd]);
-        setNewComment("");
+        if (response.data.error) {
+          console.log(response.data.error);
+        } else {
+          const commentToAdd = { commentBody: newComment };
+          setComments([...comments, commentToAdd]);
+          setNewComment("");
+        }
       });
   };
 
