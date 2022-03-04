@@ -58,5 +58,5 @@ cd into both Project Directories in 2 different terminal windows and then instal
 a big thank you to my **coach** **Amouzoun O. Bienvenu**, to openclassrooms and to my professional career advisor
 
 - [His gitHub](https://github.com/benytto888Z "card, COACH OPENCLASSROOMS")
-- [His linkedIn](https://www.linkedin.com/in/omonleye-amouzoun-416015130/ "card, linkedIn")
+- [His linkedIn](https://www.linkedin.com/in/omonleye-amouzoun-416015130/ "card, LINKEDIN")
 - [His homePage](https://creamind.fr/ "card, COACH WEBSITE")
