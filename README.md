@@ -10,7 +10,7 @@ This stack consists of **MySQL || Postgres, Express, React and Node.js**.
 
 Combining these techs, one can build a full-stack web app with **CRUD** operations on a **MVC** model-view-controller architecture.
 
-## To sum up :
+## ☑️ To sum up :
 
 - ReactJS
 - NodeJS
@@ -18,25 +18,25 @@ Combining these techs, one can build a full-stack web app with **CRUD** operatio
 - MySQL
 - Sequelize
 
-## Set up directory
+## **⏩** Set up directory
 
 The **client** directory contains the React code.
 
 The **server** directory contains the code for the node.js express server.
 
-cd into both Project Directories in 2 different terminal windows and then install the dependencies
+`cd` into both Project Directories in 2 different terminal windows and then install the dependencies.
 
 #### 1st window
 
-    cd Client
+    cd client
     npm install
 
 #### 2nd window
 
-    cd Server
+    cd server
     npm install
 
-## Run both the server and client at the same time
+## 💻 Run both the server and client at the same time
 
 #### 1st window
 
@@ -48,15 +48,17 @@ cd into both Project Directories in 2 different terminal windows and then instal
     npm run start
     *** start runs nodemon at localhost:3001 ***
 
-## Contact the newbie
+then connect your **MySQL** database with `server/config/config.json` --> `development`
+
+## 📧 Contact the newbie
 
 - [cheapskatePortfolio](https://git504.github.io/cheapskatePortfolio/ "card, FRONTEND REACT")
 - [underdogFoto](https://git504.github.io/underdogF/ "card, FOTO")
 
-## Many thanks
+## 🙏 Many thanks
 
-a big thank you to my **coach** **Amouzoun O. Bienvenu**, to openclassrooms and to my professional career advisor
+**THANKIE** to my **coach** **Amouzoun O. Bienvenu**, to openclassrooms and to my professional career advisor
 
-- [His gitHub](https://github.com/benytto888Z "card, COACH OPENCLASSROOMS")
-- [His linkedIn](https://www.linkedin.com/in/omonleye-amouzoun-416015130/ "card, LINKEDIN")
-- [His homePage](https://creamind.fr/ "card, COACH WEBSITE")
+- [His gitHub](https://github.com/benytto888Z "Amouzoun O. Bienvenu, OPENCLASSROOMS")
+- [His linkedIn](https://www.linkedin.com/in/omonleye-amouzoun-416015130/ "Amouzoun O. Bienvenu, LINKEDIN")
+- [His homePage](https://creamind.fr/ "Amouzoun O. Bienvenu, WEBSITE")
