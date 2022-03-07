@@ -43,9 +43,11 @@ body {
 
 .post .body {
   flex: 60%;
+  font-size: small;
   display: grid;
   place-content: center;
   background-color: white;
+  color: #27374c;
 }
 
 .post .footer {
@@ -178,7 +180,7 @@ a {
   color: white;
 }
 
-.navbar h1 {
+.navbar {
   text-align: right;
   margin-right: 10px;
   color: #3a608a;
@@ -223,11 +225,14 @@ button {
   height: 50px;
   border-radius: 8px;
   border: none;
+  
+
 }
 
 .addCommentContainer button {
   background-color: #3a608a;
   color: white;
+
 }
 
 .addCommentContainer input {

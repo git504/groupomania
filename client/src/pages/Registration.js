@@ -15,6 +15,7 @@ function Registration() {
   });
 
   const onSubmit = (data) => {
+    //"https://git.heroku.com/groupomania-git504.git/auth"
     axios.post("http://localhost:3001/auth", data).then(() => {
       console.log(data);
     });

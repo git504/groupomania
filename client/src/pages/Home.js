@@ -16,6 +16,7 @@ function Home() {
       history.push("/login");
     } else {
       axios
+        //"https://git.heroku.com/groupomania-git504.git/posts"
         .get("http://localhost:3001/posts", {
           headers: { accessToken: localStorage.getItem("accessToken") },
         })
@@ -33,6 +34,7 @@ function Home() {
   const likeAPost = (postId) => {
     axios
       .post(
+        //"https://git.heroku.com/groupomania-git504.git/likes"
         "http://localhost:3001/likes",
         { PostId: postId },
         { headers: { accessToken: localStorage.getItem("accessToken") } }

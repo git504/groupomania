@@ -20,8 +20,10 @@ function App() {
     status: false,
   });
 
+
   useEffect(() => {
     axios
+    //"https://git.heroku.com/groupomania-git504.git/auth/auth"
       .get("http://localhost:3001/auth/auth", {
         headers: {
           accessToken: localStorage.getItem("accessToken"),
@@ -60,8 +62,8 @@ function App() {
               ) : (
                 <>
                   <Link to="/">
-                    <img src="../public/logo192.png" alt="" />
-                    Groupomania{" "}
+                    {/* <img src="../public/logo192.png" alt="" /> */}
+                    <div className="logo">Groupomania</div>{" "}
                   </Link>
 
                   <Link to="/createpost">Post</Link>
@@ -69,7 +71,7 @@ function App() {
               )}
             </div>
             <div className="loggedInContainer">
-              <h1>{authState.username}</h1>
+              <h3>{authState.username}</h3>
               {authState.status && <button onClick={logout}>📴</button>}
             </div>
           </div>
