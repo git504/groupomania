@@ -13,10 +13,12 @@ function Post() {
   let history = useHistory();
 
   useEffect(() => {
+    //`https://git.heroku.com/groupomania-git504.git/posts/byId/${id}`
     axios.get(`http://localhost:3001/posts/byId/${id}`).then((response) => {
       setPostObject(response.data);
     });
 
+    //`https://git.heroku.com/groupomania-git504.git/comments/${id}`
     axios.get(`http://localhost:3001/comments/${id}`).then((response) => {
       setComments(response.data);
     });
@@ -25,6 +27,7 @@ function Post() {
   const addComment = () => {
     axios
       .post(
+        //"https://git.heroku.com/groupomania-git504.git/comments"
         "http://localhost:3001/comments",
         {
           commentBody: newComment,
@@ -52,6 +55,7 @@ function Post() {
 
   const deleteComment = (id) => {
     axios
+      //`https://git.heroku.com/groupomania-git504.git/comments/${id}`
       .delete(`http://localhost:3001/comments/${id}`, {
         headers: { accessToken: localStorage.getItem("accessToken") },
       })
@@ -66,6 +70,7 @@ function Post() {
 
   const deletePost = (id) => {
     axios
+      //`https://git.heroku.com/groupomania-git504.git/posts/${id}`
       .delete(`http://localhost:3001/posts/${id}`, {
         headers: { accessToken: localStorage.getItem("accessToken") },
       })
@@ -78,6 +83,7 @@ function Post() {
     if (option === "title") {
       let newTitle = prompt("Enter New Title:");
       axios.put(
+        //"https://git.heroku.com/groupomania-git504.git/posts/title"
         "http://localhost:3001/posts/title",
         {
           newTitle: newTitle,
@@ -92,6 +98,7 @@ function Post() {
     } else {
       let newPostText = prompt("Enter New Text:");
       axios.put(
+        //"https://git.heroku.com/groupomania-git504.git/posts/postText"
         "http://localhost:3001/posts/postText",
         {
           newText: newPostText,
@@ -139,7 +146,7 @@ function Post() {
                 }}
               >
                 {" "}
-                X
+                🗑️
               </button>
             )}
           </div>
@@ -149,6 +156,7 @@ function Post() {
         <div className="addCommentContainer">
           <input
             type="text"
+            min={3}
             placeholder="Say something..."
             autoComplete="off"
             value={newComment}
@@ -156,7 +164,7 @@ function Post() {
               setNewComment(event.target.value);
             }}
           />
-          <button onClick={addComment}>COMMENT</button>
+          <button onClick={addComment}>comment</button>
         </div>
         <div className="listOfComments">
           {comments.map((comment, key) => {
@@ -170,7 +178,7 @@ function Post() {
                       deleteComment(comment.id);
                     }}
                   >
-                    X
+                    🗑️
                   </button>
                 )}
               </div>

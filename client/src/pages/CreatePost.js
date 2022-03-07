@@ -27,6 +27,7 @@ function CreatePost() {
 
   const onSubmit = (data) => {
     axios
+      //"https://git.heroku.com/groupomania-git504.git/posts"
       .post("http://localhost:3001/posts", data, {
         headers: { accessToken: localStorage.getItem("accessToken") },
       })
@@ -43,24 +44,24 @@ function CreatePost() {
         validationSchema={validationSchema}
       >
         <Form className="formContainer">
-          <label>Title: </label>
+          <label>title </label>
           <ErrorMessage name="title" component="span" />
           <Field
             autoComplete="off"
             id="inputCreatePost"
             name="title"
-            placeholder="Insert your title..."
+            placeholder="Insert your title ..."
           />
-          <label>Post: </label>
+          <label>post</label>
           <ErrorMessage name="postText" component="span" />
           <Field
             autoComplete="off"
             id="inputCreatePost"
             name="postText"
-            placeholder="Write a message..."
+            placeholder="📝 Type a message ..."
           />
 
-          <button type="submit">Send</button>
+          <button type="submit">SEND</button>
         </Form>
       </Formik>
     </div>

@@ -45,13 +45,14 @@ The **server** directory contains the code for the node.js express server.
 
 #### 2nd window
 
-    npm run start
-    *** start runs nodemon at localhost:3001 ***
+    npm run devStart
+    *** start runs devStart at localhost:3001 ***
 
 then connect your **MySQL** database with `server/config/config.json` --> `development`
 
 ## 📧 Contact the newbie
 
+- [GROUPOMANIA HEROKU](https://git.heroku.com/groupomania-git504.git "GROUPOMANIA, website")
 - [cheapskatePortfolio](https://git504.github.io/cheapskatePortfolio/ "card, FRONTEND REACT")
 - [underdogFoto](https://git504.github.io/underdogF/ "card, FOTO")
 

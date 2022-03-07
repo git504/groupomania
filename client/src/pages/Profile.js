@@ -11,10 +11,11 @@ function Profile() {
   const { authState } = useContext(AuthContext);
 
   useEffect(() => {
+    //`https://git.heroku.com/groupomania-git504.git/auth/basicinfo/${id}`
     axios.get(`http://localhost:3001/auth/basicinfo/${id}`).then((response) => {
       setUsername(response.data.username);
     });
-
+    //`https://git.heroku.com/groupomania-git504.git/posts/byuserId/${id}`
     axios.get(`http://localhost:3001/posts/byuserId/${id}`).then((response) => {
       setListOfPosts(response.data);
     });
@@ -24,19 +25,25 @@ function Profile() {
     <div className="profilePageContainer">
       <div className="basicInfo">
         {" "}
-        <h1> Username: {username} </h1>
-        {authState.username === username && (
-          <button
-            onClick={() => {
-              history.push("/changepassword");
-            }}
-          >
-            {" "}
-            Change My Password
-          </button>
-        )}
+        <h1>ACCOUNT DETAILS</h1>
+        <h3>Username :{username}</h3>
+        <h3>
+          Password :
+          {authState.username === username && (
+            <button
+              onClick={() => {
+                history.push("/changepassword");
+              }}
+            >
+              {" "}
+              🔑 Change My Password
+            </button>
+          )}
+        </h3>
       </div>
+      <h3>DELETE ACCOUNT</h3>
       <div className="listOfPosts">
+        <h3>History :</h3>
         {listOfPosts.map((value, key) => {
           return (
             <div key={key} className="post">
