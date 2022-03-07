@@ -4,13 +4,17 @@
   display: flex;
   align-items: center;
   flex-direction: column;
+  background-color: #f1efea;
+  color: #27374c;
 }
 
 body {
   margin: 0;
   padding: 0;
 }
-
+::placeholder {
+  color: #dfe4eb;
+}
 .post {
   width: 400px;
   height: 300px;
@@ -31,16 +35,17 @@ body {
 .post .title {
   flex: 20%;
   border-bottom: 1px solid lightgray;
-  background-color: dodgerblue;
+  background-color: #f7f7f7;
   display: grid;
   place-content: center;
-  color: white;
+  color: #3a608a;
 }
 
 .post .body {
   flex: 60%;
   display: grid;
   place-content: center;
+  background-color: white;
 }
 
 .post .footer {
@@ -49,14 +54,22 @@ body {
   display: flex;
   align-items: center;
   padding-left: 15px;
-  background-color: dodgerblue;
-  color: white;
+  background-color: white;
+  color: #287fb8;
   border-bottom-left-radius: 10px;
   border-bottom-right-radius: 10px;
 }
 
+.footer button {
+  background-color: #3a608a;
+  color: white;
+}
 .footer .username {
   flex: 50%;
+}
+
+.username {
+  color: #287fb8;
 }
 .footer .buttons {
   flex: 50%;
@@ -66,10 +79,10 @@ body {
 }
 
 .likeBttn {
-  color: rgba(250, 250, 250, 0.8);
+  color: #eceff2;
 }
 .unlikeBttn {
-  color: white;
+  color: #287fb8;
 }
 
 .buttons label {
@@ -94,7 +107,7 @@ body {
   width: 500px;
   height: auto;
   padding: 20px;
-  border: 5px solid dodgerblue;
+  border: 5px solid #287fb8;
   border-radius: 5px;
 }
 
@@ -119,11 +132,11 @@ body {
 
 .formContainer button:hover {
   cursor: pointer;
-  background-color: dodgerblue;
+  background-color: #287fb8;
 }
 
 span {
-  color: red;
+  color: #287fb8;
 }
 
 /* NAVBAR */
@@ -131,7 +144,7 @@ span {
 .navbar {
   width: 100%;
   height: 70px;
-  background-color: dodgerblue;
+  background-color: white;
   display: flex;
   align-items: center;
   font-family: Arial, Helvetica, sans-serif;
@@ -151,9 +164,9 @@ span {
   align-items: center;
 }
 a {
-  margin-left: 20px;
+  margin-left: 30px;
   text-decoration: none;
-  color: white;
+  color: #3a608a;
 }
 
 .navbar button {
@@ -161,13 +174,14 @@ a {
   height: 40px;
   cursor: pointer;
   margin-right: 10px;
-  background-color: white;
+  /* background-color: #3a608a; */
+  color: white;
 }
 
 .navbar h1 {
   text-align: right;
   margin-right: 10px;
-  color: white;
+  color: #3a608a;
   font-weight: lighter;
 }
 
@@ -212,12 +226,12 @@ button {
 }
 
 .addCommentContainer button {
-  background-color: dodgerblue;
+  background-color: #3a608a;
   color: white;
 }
 
 .addCommentContainer input {
-  border: 2px solid dodgerblue;
+  border: 2px solid #3a608a;
 }
 
 .rightSide .listOfComments {

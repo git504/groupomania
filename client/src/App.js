@@ -7,6 +7,7 @@ import Registration from "./pages/Registration";
 import Login from "./pages/Login";
 import PageNotFound from "./pages/PageNotFound";
 import Profile from "./pages/Profile";
+import ChangePassword from "./pages/ChangePassword";
 
 import { AuthContext } from "./helpers/AuthContext";
 import { useState, useEffect } from "react";
@@ -38,6 +39,7 @@ function App() {
         }
       });
   }, []);
+  // https://github.com/facebook/react/issues/14920
 
   const logout = () => {
     localStorage.removeItem("accessToken");
@@ -52,19 +54,23 @@ function App() {
             <div className="links">
               {!authState.status ? (
                 <>
-                  <Link to="/login"> Login</Link>
-                  <Link to="/registration"> Registration</Link>
+                  <Link to="/login">Login</Link>
+                  <Link to="/registration">SignIn</Link>
                 </>
               ) : (
                 <>
-                  <Link to="/"> Home Page</Link>
-                  <Link to="/createpost"> Create A Post</Link>
+                  <Link to="/">
+                    <img src="../public/logo192.png" alt="" />
+                    Groupomania{" "}
+                  </Link>
+
+                  <Link to="/createpost">Post</Link>
                 </>
               )}
             </div>
             <div className="loggedInContainer">
-              <h1>{authState.username} </h1>
-              {authState.status && <button onClick={logout}> Logout</button>}
+              <h1>{authState.username}</h1>
+              {authState.status && <button onClick={logout}>📴</button>}
             </div>
           </div>
           <Switch>
@@ -74,6 +80,7 @@ function App() {
             <Route path="/registration" exact component={Registration} />
             <Route path="/login" exact component={Login} />
             <Route path="/profile/:id" exact component={Profile} />
+            <Route path="/changepassword" exact component={ChangePassword} />
             <Route path="*" exact component={PageNotFound} />
           </Switch>
         </Router>

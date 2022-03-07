@@ -20,7 +20,7 @@ function Post() {
     axios.get(`http://localhost:3001/comments/${id}`).then((response) => {
       setComments(response.data);
     });
-  }, []);
+  }, [id]);
 
   const addComment = () => {
     axios
@@ -58,7 +58,7 @@ function Post() {
       .then(() => {
         setComments(
           comments.filter((val) => {
-            return val.id != id;
+            return val.id !== id;
           })
         );
       });
@@ -73,12 +73,63 @@ function Post() {
         history.push("/");
       });
   };
+
+  const editPost = (option) => {
+    if (option === "title") {
+      let newTitle = prompt("Enter New Title:");
+      axios.put(
+        "http://localhost:3001/posts/title",
+        {
+          newTitle: newTitle,
+          id: id,
+        },
+        {
+          headers: { accessToken: localStorage.getItem("accessToken") },
+        }
+      );
+
+      setPostObject({ ...postObject, title: newTitle });
+    } else {
+      let newPostText = prompt("Enter New Text:");
+      axios.put(
+        "http://localhost:3001/posts/postText",
+        {
+          newText: newPostText,
+          id: id,
+        },
+        {
+          headers: { accessToken: localStorage.getItem("accessToken") },
+        }
+      );
+
+      setPostObject({ ...postObject, postText: newPostText });
+    }
+  };
+
   return (
     <div className="postPage">
       <div className="leftSide">
         <div className="post" id="individual">
-          <div className="title"> {postObject.title} </div>
-          <div className="body">{postObject.postText}</div>
+          <div
+            className="title"
+            onClick={() => {
+              if (authState.username === postObject.username) {
+                editPost("title");
+              }
+            }}
+          >
+            {postObject.title}
+          </div>
+          <div
+            className="body"
+            onClick={() => {
+              if (authState.username === postObject.username) {
+                editPost("body");
+              }
+            }}
+          >
+            {postObject.postText}
+          </div>
           <div className="footer">
             {postObject.username}
             {authState.username === postObject.username && (
@@ -88,7 +139,7 @@ function Post() {
                 }}
               >
                 {" "}
-                Delete Post
+                X
               </button>
             )}
           </div>
@@ -98,21 +149,21 @@ function Post() {
         <div className="addCommentContainer">
           <input
             type="text"
-            placeholder="Comment..."
+            placeholder="Say something..."
             autoComplete="off"
             value={newComment}
             onChange={(event) => {
               setNewComment(event.target.value);
             }}
           />
-          <button onClick={addComment}> Add Comment</button>
+          <button onClick={addComment}>COMMENT</button>
         </div>
         <div className="listOfComments">
           {comments.map((comment, key) => {
             return (
               <div key={key} className="comment">
                 {comment.commentBody}
-                <label> Username: {comment.username}</label>
+                <label>{comment.username} comment your post</label>
                 {authState.username === comment.username && (
                   <button
                     onClick={() => {

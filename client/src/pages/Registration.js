@@ -31,20 +31,20 @@ function Registration() {
           <label>Username: </label>
           <ErrorMessage name="username" component="span" />
           <Field
-            autocomplete="off"
+            autoComplete="off"
             id="inputCreatePost"
             name="username"
-            placeholder="(Ex. John123...)"
+            placeholder="😃Johnny Hallyday"
           />
 
           <label>Password: </label>
           <ErrorMessage name="password" component="span" />
           <Field
-            autocomplete="off"
+            autoComplete="off"
             type="password"
             id="inputCreatePost"
             name="password"
-            placeholder="Your Password..."
+            placeholder="🔓3615-Qui.n'en.veux"
           />
 
           <button type="submit"> Register</button>

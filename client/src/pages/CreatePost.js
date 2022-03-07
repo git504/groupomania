@@ -1,12 +1,13 @@
-import React, { useContext, useEffect } from "react";
+import React, { useEffect } from "react";
+//useContext,
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
 import axios from "axios";
 import { useHistory } from "react-router-dom";
-import { AuthContext } from "../helpers/AuthContext";
+//import { AuthContext } from "../helpers/AuthContext";
 
 function CreatePost() {
-  const { authState } = useContext(AuthContext);
+  //const { authState } = useContext(AuthContext);
 
   let history = useHistory();
   const initialValues = {
@@ -20,8 +21,8 @@ function CreatePost() {
     }
   }, [history]);
   const validationSchema = Yup.object().shape({
-    title: Yup.string().required("You must input a Title!"),
-    postText: Yup.string().required(),
+    title: Yup.string().min(1).max(15).required("You must input a Title!"),
+    postText: Yup.string().min(1).max(150).required(),
   });
 
   const onSubmit = (data) => {
@@ -45,21 +46,21 @@ function CreatePost() {
           <label>Title: </label>
           <ErrorMessage name="title" component="span" />
           <Field
-            autocomplete="off"
+            autoComplete="off"
             id="inputCreatePost"
             name="title"
-            placeholder="(Ex. Title...)"
+            placeholder="Insert your title..."
           />
           <label>Post: </label>
           <ErrorMessage name="postText" component="span" />
           <Field
-            autocomplete="off"
+            autoComplete="off"
             id="inputCreatePost"
             name="postText"
-            placeholder="(Ex. Post...)"
+            placeholder="Write a message..."
           />
 
-          <button type="submit"> Create Post</button>
+          <button type="submit">Send</button>
         </Form>
       </Formik>
     </div>
