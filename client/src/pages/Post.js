@@ -10,6 +10,7 @@ function Post() {
   const [newComment, setNewComment] = useState({ commentText: "", id: null });
   const { authState } = useContext(AuthContext);
   const [updatePostText, setupdatePostText] = useState("");
+  const [onModif, setOnModif] = useState(false);
 
   let history = useHistory();
 
@@ -80,38 +81,21 @@ function Post() {
       });
   };
 
-  const editPost = (option) => {
-    if (option === "title") {
-      let newTitle = prompt("Enter New Title:");
-      axios.put(
-        //"https://git.heroku.com/groupomania-git504.git/posts/title"
-        "http://localhost:3001/posts/title",
-        {
-          newTitle: newTitle,
-          id: id,
-        },
-        {
-          headers: { accessToken: localStorage.getItem("accessToken") },
-        }
-      );
+  const editPost = (modifText) => {
+    //let newPostText = prompt("Enter New Text:");
+    axios.put(
+      //"https://git.heroku.com/groupomania-git504.git/posts/postText"
+      "http://localhost:3001/posts/postText",
+      {
+        newText: modifText,
+        id: id,
+      },
+      {
+        headers: { accessToken: localStorage.getItem("accessToken") },
+      }
+    );
 
-      setPostObject({ ...postObject, title: newTitle });
-    } else {
-      let newPostText = prompt("Enter New Text:");
-      axios.put(
-        //"https://git.heroku.com/groupomania-git504.git/posts/postText"
-        "http://localhost:3001/posts/postText",
-        {
-          newText: newPostText,
-          id: id,
-        },
-        {
-          headers: { accessToken: localStorage.getItem("accessToken") },
-        }
-      );
-
-      setPostObject({ ...postObject, postText: newPostText });
-    }
+    setPostObject({ ...postObject, postText: modifText });
   };
 
   return (
@@ -128,25 +112,58 @@ function Post() {
           >
             {postObject.title}
           </div>
-          <div className="body">{postObject.postText}</div>
-          <button
-            onClick={() => {
+          <div>
+            <img
+              src="/client/public/photos/joseph-keyser-RGsjc0D0p_o-unsplash.jpg"
+              alt=""
+            />
+          </div>
+          <div
+            className="body"
+            onDoubleClick={() => {
               if (authState.username === postObject.username) {
-                editPost("body");
+                // editPost("body");
+                setOnModif(true);
+                setupdatePostText(postObject.postText);
               }
             }}
           >
-            ♻️ editPost
-          </button>
-          <input
-            type="text"
-            value={updatePostText}
-            onChange={(e) => {
-              setupdatePostText(e.target.value);
-            }}
-            placeholder="*** recycle da post ***"
-          />
-
+            {" "}
+            {postObject.postText}
+          </div>
+          {onModif && (
+            <div>
+              <button
+                onClick={() => {
+                  if (authState.username === postObject.username) {
+                    editPost(updatePostText);
+                    setOnModif(false);
+                    setupdatePostText("");
+                  }
+                }}
+              >
+                ♻️ editPost
+              </button>
+              <input
+                type="text"
+                value={updatePostText}
+                onChange={(e) => {
+                  setupdatePostText(e.target.value);
+                }}
+                placeholder="*** recycle da post ***"
+              />
+              <button
+                onClick={() => {
+                  if (authState.username === postObject.username) {
+                    setOnModif(false);
+                    setupdatePostText("");
+                  }
+                }}
+              >
+                🔀
+              </button>
+            </div>
+          )}
           <div className="footer">
             from {postObject.username}
             {authState.username === postObject.username && (

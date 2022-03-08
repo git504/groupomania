@@ -1,8 +1,11 @@
 const express = require("express");
 const app = express();
+const port = 3001;
+
 const cors = require("cors");
 require("dotenv").config();
 
+app.use(logger);
 app.use(express.json());
 app.use(cors());
 
@@ -21,10 +24,15 @@ app.use("/likes", likesRouter);
 db.sequelize
   .sync()
   .then(() => {
-    app.listen(process.env.PORT, () => {
+    app.listen(process.env.PORT || port, () => {
       console.log("SERVER RUNNING ON PORT " + process.env.PORT);
     });
   })
   .catch((err) => {
     console.log(err);
   });
+
+function logger(req, res, next) {
+  console.log("originalUrl : " + req.originalUrl);
+  next();
+}

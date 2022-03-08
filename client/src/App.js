@@ -20,10 +20,9 @@ function App() {
     status: false,
   });
 
-
   useEffect(() => {
     axios
-    //"https://git.heroku.com/groupomania-git504.git/auth/auth"
+      //"https://git.heroku.com/groupomania-git504.git/auth/auth"
       .get("http://localhost:3001/auth/auth", {
         headers: {
           accessToken: localStorage.getItem("accessToken"),
@@ -46,6 +45,7 @@ function App() {
   const logout = () => {
     localStorage.removeItem("accessToken");
     setAuthState({ username: "", id: 0, status: false });
+    //return Login;
   };
 
   return (
@@ -65,7 +65,6 @@ function App() {
                     {/* <img src="../public/logo192.png" alt="" /> */}
                     <div className="logo">Groupomania</div>{" "}
                   </Link>
-
                   <Link to="/createpost">Post</Link>
                 </>
               )}

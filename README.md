@@ -18,6 +18,8 @@ Combining these techs, one can build a full-stack web app with **CRUD** operatio
 - MySQL
 - Sequelize
 
+- [MVP FEATURES TO DO LIST](https://github.com/git504/groupomania/blob/main/Openclassrooms/spec/spec.md "toDo, LIST")
+
 ## **⏩** Set up directory
 
 The **client** directory contains the React code.
@@ -52,7 +54,7 @@ then connect your **SQL** database with `server/config/config.js`
 
 ## 📧 Contact the newbie
 
-- [GROUPOMANIA HEROKU](https://git.heroku.com/groupomania-git504.git "GROUPOMANIA, website")
+- [GROUPOMANIA WEBSITE](https://git.heroku.com/groupomania-git504.git "GROUPOMANIA, website")
 - [cheapskatePortfolio](https://git504.github.io/cheapskatePortfolio/ "card, FRONTEND REACT")
 - [underdogFoto](https://git504.github.io/underdogF/ "card, FOTO")
 
