@@ -17,7 +17,7 @@ function Registration() {
   const onSubmit = (data) => {
     //"https://git.heroku.com/groupomania-git504.git/auth"
     axios.post("http://localhost:3001/auth", data).then(() => {
-      console.log(data);
+      //console.log(data);
     });
   };
 
@@ -29,26 +29,26 @@ function Registration() {
         validationSchema={validationSchema}
       >
         <Form className="formContainer">
-          <label>Username: </label>
+          <label>Username</label>
           <ErrorMessage name="username" component="span" />
           <Field
             autoComplete="off"
             id="inputCreatePost"
             name="username"
-            placeholder="😃Johnny Hallyday"
+            placeholder="👤Johnny Hallyday"
           />
 
-          <label>Password: </label>
+          <label>Password</label>
           <ErrorMessage name="password" component="span" />
           <Field
             autoComplete="off"
             type="password"
             id="inputCreatePost"
             name="password"
-            placeholder="🔓3615-Qui.n'en.veux"
+            placeholder="🔐️3615 code qui n'en veut"
           />
 
-          <button type="submit"> Register</button>
+          <button type="submit">SignIn</button>
         </Form>
       </Formik>
     </div>

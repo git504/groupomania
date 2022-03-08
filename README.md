@@ -46,9 +46,9 @@ The **server** directory contains the code for the node.js express server.
 #### 2nd window
 
     npm run devStart
-    *** start runs devStart at localhost:3001 ***
+    *** devStart runs nodemon at localhost:3001 ***
 
-then connect your **MySQL** database with `server/config/config.json` --> `development`
+then connect your **SQL** database with `server/config/config.js`
 
 ## 📧 Contact the newbie
 

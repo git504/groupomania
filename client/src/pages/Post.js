@@ -7,8 +7,9 @@ function Post() {
   let { id } = useParams();
   const [postObject, setPostObject] = useState({});
   const [comments, setComments] = useState([]);
-  const [newComment, setNewComment] = useState("");
+  const [newComment, setNewComment] = useState({ commentText: "", id: null });
   const { authState } = useContext(AuthContext);
+  const [updatePostText, setupdatePostText] = useState("");
 
   let history = useHistory();
 
@@ -30,7 +31,7 @@ function Post() {
         //"https://git.heroku.com/groupomania-git504.git/comments"
         "http://localhost:3001/comments",
         {
-          commentBody: newComment,
+          commentBody: newComment.commentText,
           PostId: id,
         },
         {
@@ -43,12 +44,12 @@ function Post() {
         if (response.data.error) {
           console.log(response.data.error);
         } else {
+          console.log(response.data);
           const commentToAdd = {
-            commentBody: newComment,
-            username: response.data.username,
+            ...response.data,
           };
           setComments([...comments, commentToAdd]);
-          setNewComment("");
+          setNewComment({ commentText: "", id: null });
         }
       });
   };
@@ -119,26 +120,35 @@ function Post() {
         <div className="post" id="individual">
           <div
             className="title"
-            onClick={() => {
-              if (authState.username === postObject.username) {
-                editPost("title");
-              }
-            }}
+            // onClick={() => {
+            //   if (authState.username === postObject.username) {
+            //     editPost("title");
+            //   }
+            // }}
           >
             {postObject.title}
           </div>
-          <div
-            className="body"
+          <div className="body">{postObject.postText}</div>
+          <button
             onClick={() => {
               if (authState.username === postObject.username) {
                 editPost("body");
               }
             }}
           >
-            {postObject.postText}
-          </div>
+            ♻️ editPost
+          </button>
+          <input
+            type="text"
+            value={updatePostText}
+            onChange={(e) => {
+              setupdatePostText(e.target.value);
+            }}
+            placeholder="*** recycle da post ***"
+          />
+
           <div className="footer">
-            {postObject.username}
+            from {postObject.username}
             {authState.username === postObject.username && (
               <button
                 onClick={() => {
@@ -156,12 +166,11 @@ function Post() {
         <div className="addCommentContainer">
           <input
             type="text"
-            min={3}
             placeholder="Say something..."
             autoComplete="off"
-            value={newComment}
+            value={newComment.commentText}
             onChange={(event) => {
-              setNewComment(event.target.value);
+              setNewComment({ commentText: event.target.value, id: null });
             }}
           />
           <button onClick={addComment}>comment</button>
@@ -170,8 +179,11 @@ function Post() {
           {comments.map((comment, key) => {
             return (
               <div key={key} className="comment">
-                {comment.commentBody}
-                <label>{comment.username} comment your post</label>
+                <h4>{comment.commentBody}</h4>
+
+                <label>
+                  ⏩ <strong>{comment.username}</strong> commented on your post
+                </label>
                 {authState.username === comment.username && (
                   <button
                     onClick={() => {
