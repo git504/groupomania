@@ -68,7 +68,7 @@ function Login() {
             setPassword(event.target.value);
           }}
         />
-        <button onClick={login}> Login </button>
+        <button type="submit" onClick={login}> Login </button>
       </Form>
     </Formik>
   );
