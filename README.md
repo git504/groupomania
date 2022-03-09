@@ -2,7 +2,7 @@
 
 Build Your Own Social Media Using Express, Hooks, & MySQL || Postgres for the employees of **Groupomania**.
 
-- [⏩ GO TO Checklist of requirements](https://github.com/git504/groupomania/blob/main/Openclassrooms/spec/spec.md "done, Checklist")
+- [⏩ Checklist of requirements](https://github.com/git504/groupomania/blob/main/Openclassrooms/spec/spec.md "done, Checklist")
 - [⏩ GROUPOMANIA WEBSITE](https://git.heroku.com/groupomania-git504.git "GROUPOMANIA, netlify")
 
 ![logo](./Openclassrooms/images/icon-left-font.png "logo, GROUPOMANIA")
