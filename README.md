@@ -2,6 +2,9 @@
 
 Build Your Own Social Media Using Express, Hooks, & MySQL || Postgres for the employees of **Groupomania**.
 
+- [⏩ GO TO Checklist of requirements](https://github.com/git504/groupomania/blob/main/Openclassrooms/spec/spec.md "done, Checklist")
+- [⏩ GROUPOMANIA WEBSITE](https://git.heroku.com/groupomania-git504.git "GROUPOMANIA, netlify")
+
 ![logo](./Openclassrooms/images/icon-left-font.png "logo, GROUPOMANIA")
 
 ## What is PERN Stack?
@@ -12,13 +15,8 @@ Combining these techs, one can build a full-stack web app with **CRUD** operatio
 
 ## ☑️ To sum up :
 
-- ReactJS
-- NodeJS
-- ExpressJS
-- MySQL
-- Sequelize
-
-- [MVP FEATURES TO DO LIST](https://github.com/git504/groupomania/blob/main/Openclassrooms/spec/spec.md "toDo, LIST")
+- React front-end
+- **RESTful API** with Node & Express, MySQL & Sequelize
 
 ## **⏩** Set up directory
 
@@ -52,16 +50,15 @@ The **server** directory contains the code for the node.js express server.
 
 then connect your **SQL** database with `server/config/config.js`
 
-## 📧 Contact the newbie
+## 📪 Contact the newbie
 
-- [GROUPOMANIA WEBSITE](https://git.heroku.com/groupomania-git504.git "GROUPOMANIA, website")
-- [cheapskatePortfolio](https://git504.github.io/cheapskatePortfolio/ "card, FRONTEND REACT")
+- [cheapskatePortfolio](https://git504.github.io/cheapskatePortfolio/ "contact me, WEB.DEV")
 - [underdogFoto](https://git504.github.io/underdogF/ "card, FOTO")
 
-## 🙏 Many thanks
+## 🙏🏿 Many thanks
 
-**THANKIE** to my **coach** **Amouzoun O. Bienvenu**, to openclassrooms and to my professional career advisor
+**THANKIE** to my **full-stack coach** **🇧🇯 👑 👌🏿Amouzoun O. Bienvenu**, to openclassrooms and to my professional career advisor
 
-- [His gitHub](https://github.com/benytto888Z "Amouzoun O. Bienvenu, OPENCLASSROOMS")
-- [His linkedIn](https://www.linkedin.com/in/omonleye-amouzoun-416015130/ "Amouzoun O. Bienvenu, LINKEDIN")
-- [His homePage](https://creamind.fr/ "Amouzoun O. Bienvenu, WEBSITE")
+- [☀︎ His gitHub](https://github.com/benytto888Z "Amouzoun O. Bienvenu, OPENCLASSROOMS")
+- [☀︎ His linkedIn](https://www.linkedin.com/in/omonleye-amouzoun-416015130/ "Amouzoun O. Bienvenu, LINKEDIN")
+- [☀︎ His homePage](https://creamind.fr/ "Amouzoun O. Bienvenu, WEBSITE")

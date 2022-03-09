@@ -27,10 +27,12 @@ function Login() {
       }
     });
   };
+
   return (
     <div className="loginContainer">
       <label>Username</label>
       <input
+        required
         type="text"
         placeholder="👤user"
         onChange={(event) => {
@@ -39,6 +41,7 @@ function Login() {
       />
       <label>Password</label>
       <input
+        required
         type="password"
         placeholder="🔐️*******"
         onChange={(event) => {
