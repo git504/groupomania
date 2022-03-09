@@ -20,9 +20,11 @@ function CreatePost() {
       history.push("/login");
     }
   }, [history]);
+
+
   const validationSchema = Yup.object().shape({
-    title: Yup.string().min(1).max(15).required("You must input a Title!"),
-    postText: Yup.string().min(1).max(150).required(),
+    title: Yup.string().min(1).max(15).required("a title is needed 😉"),
+    postText: Yup.string().min(1).max(150).required("a post is needed 🔤"),
   });
 
   const onSubmit = (data) => {
@@ -44,7 +46,7 @@ function CreatePost() {
         validationSchema={validationSchema}
       >
         <Form className="formContainer">
-          <label>title </label>
+          <label>title</label>
           <ErrorMessage name="title" component="span" />
           <Field
             autoComplete="off"

@@ -133,17 +133,6 @@ function Post() {
           </div>
           {onModif && (
             <div>
-              <button
-                onClick={() => {
-                  if (authState.username === postObject.username) {
-                    editPost(updatePostText);
-                    setOnModif(false);
-                    setupdatePostText("");
-                  }
-                }}
-              >
-                ♻️ editPost
-              </button>
               <input
                 type="text"
                 value={updatePostText}
@@ -151,29 +140,42 @@ function Post() {
                   setupdatePostText(e.target.value);
                 }}
                 placeholder="*** recycle da post ***"
-              />
-              <button
-                onClick={() => {
-                  if (authState.username === postObject.username) {
-                    setOnModif(false);
-                    setupdatePostText("");
-                  }
-                }}
-              >
-                🔀
-              </button>
+              />{" "}
+              <div>
+                <button className="smallBtn"
+                  onClick={() => {
+                    if (authState.username === postObject.username) {
+                      editPost(updatePostText);
+                      setOnModif(false);
+                      setupdatePostText("");
+                    }
+                  }}
+                >
+                  ♻️ edit
+                </button>
+                <button className="smallBtn"
+                  onClick={() => {
+                    if (authState.username === postObject.username) {
+                      setOnModif(false);
+                      setupdatePostText("");
+                    }
+                  }}
+                >
+                  🔀 cancel
+                </button>
+              </div>
             </div>
           )}
           <div className="footer">
             from {postObject.username}
             {authState.username === postObject.username && (
-              <button
+              <button className="smallBtn"
                 onClick={() => {
                   deletePost(postObject.id);
                 }}
               >
                 {" "}
-                🗑️
+                🗑️ bin
               </button>
             )}
           </div>
@@ -183,7 +185,7 @@ function Post() {
         <div className="addCommentContainer">
           <input
             type="text"
-            placeholder="Say something..."
+            placeholder="start a new discussion..."
             autoComplete="off"
             value={newComment.commentText}
             onChange={(event) => {
@@ -202,12 +204,12 @@ function Post() {
                   ⏩ <strong>{comment.username}</strong> commented on your post
                 </label>
                 {authState.username === comment.username && (
-                  <button
+                  <button className="smallBtn"
                     onClick={() => {
                       deleteComment(comment.id);
                     }}
                   >
-                    🗑️
+                    🗑️ bin
                   </button>
                 )}
               </div>

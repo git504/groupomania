@@ -62,10 +62,11 @@ body {
   border-bottom-right-radius: 10px;
 }
 
-.footer button {
+/* .footer button {
   background-color: #3a608a;
   color: white;
-}
+} */
+
 .footer .username {
   flex: 50%;
 }
@@ -132,13 +133,13 @@ body {
   color: white;
 }
 
-.formContainer button:hover {
+.formContainer .button:hover {
   cursor: pointer;
   background-color: #287fb8;
 }
 
 span {
-  color: #287fb8;
+  color: #f24423;
 }
 
 /* NAVBAR */
@@ -171,13 +172,24 @@ a {
   color: #3a608a;
 }
 
-.navbar button {
+/* .navbar button {
   width: 100px;
   height: 40px;
   cursor: pointer;
   margin-right: 10px;
-  /* background-color: #3a608a; */
+  background-color: #3a608a;
   color: white;
+} */
+
+.smallBtn{
+  border-color: grey;
+  border-style: solid;
+  border-width: 1px;
+  width: 133px;
+  height: 40px;
+  cursor: pointer;
+  background-color: white;
+  color: #27374c
 }
 
 .navbar {
@@ -225,15 +237,26 @@ button {
   height: 50px;
   border-radius: 8px;
   border: none;
-  
-
 }
 
-.addCommentContainer button {
-  background-color: #3a608a;
+ button {
+  background-color: lightskyblue;
   color: white;
-
 }
+
+button:hover {
+  cursor: pointer;
+  background-color: #287fb8;
+}
+
+/* .formContainer  button {
+  margin-top: 15px;
+  height: 40px;
+  border: none;
+  background-color: lightskyblue;
+  border-radius: 5px;
+  color: white;
+} */
 
 .addCommentContainer input {
   border: 2px solid #3a608a;
@@ -290,10 +313,10 @@ button {
   margin: 10px;
 }
 
-.loginContainer button {
+/* .loginContainer button {
   background-color: dodgerblue;
   color: white;
-}
+} */
 
 .loginContainer input {
   border: 2px solid dodgerblue;
