@@ -26,7 +26,7 @@ function Profile() {
       <div className="basicInfo">
         {" "}
         <h1>ACCOUNT DETAILS</h1>
-        <h3>Username : {username}</h3>
+        <h3>Username :{username}</h3>
         <h3>
           Password :
           {authState.username === username && (

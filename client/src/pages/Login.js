@@ -11,8 +11,8 @@ const validationSchema = Yup.object().shape({
 });
 
 const initialValues = {
-  username: "",
-  password: "",
+  username: "username",
+  password: "password",
 };
 
 function Login() {

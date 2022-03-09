@@ -22,7 +22,6 @@ function Registration() {
   };
 
   return (
-    <div>
       <Formik
         initialValues={initialValues}
         onSubmit={onSubmit}
@@ -45,13 +44,12 @@ function Registration() {
             type="password"
             id="inputCreatePost"
             name="password"
-            placeholder="🔐️3615 code qui n'en veut"
+            placeholder="🔐️ 3615 code qui n'en veut"
           />
 
           <button type="submit">SignIn</button>
         </Form>
       </Formik>
-    </div>
   );
 }
 
