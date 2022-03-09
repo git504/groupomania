@@ -21,7 +21,6 @@ function CreatePost() {
     }
   }, [history]);
 
-
   const validationSchema = Yup.object().shape({
     title: Yup.string().min(1).max(15).required("a title is needed 😉"),
     postText: Yup.string().min(1).max(150).required("a post is needed 🔤"),
@@ -49,20 +48,24 @@ function CreatePost() {
           <label>title</label>
           <ErrorMessage name="title" component="span" />
           <Field
+            type="text"
             autoComplete="off"
-            id="inputCreatePost"
+            className="inputCreatePost "
             name="title"
             placeholder="Insert your title ..."
           />
           <label>post</label>
           <ErrorMessage name="postText" component="span" />
           <Field
+            as="textarea"
             autoComplete="off"
-            id="inputCreatePost"
-            name="postText"
+            className="inputCreatePost textAreaPost"
             placeholder="📝 Type a message ..."
-          />
-
+            name="postText"
+            id=""
+            cols="30"
+            rows="15"
+          ></Field>
           <button type="submit">SEND</button>
         </Form>
       </Formik>

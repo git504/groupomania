@@ -19,15 +19,14 @@ body {
   color: #dfe4eb;
 }
 .post {
-  width: 400px;
+  width: 33vw;
   height: 300px;
   border-radius: 10px;
   display: flex;
   flex-direction: column;
-  margin-top: 50px;
+  margin-top: 10vh;
   border: 1px solid lightgray;
   font-family: Arial, Helvetica, sans-serif;
-  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
 }
 
 .post:hover {
@@ -106,24 +105,50 @@ body {
   align-items: center;
 }
 .formContainer {
+  margin-top: 10vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
   width: 500px;
   height: auto;
   padding: 20px;
-  border: 5px solid #287fb8;
+  border: 1px solid #287fb8;
   border-radius: 5px;
+  border: 1px solid lightgray;
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: white;
 }
 
-.formContainer #inputCreatePost {
-  height: 40px;
-  margin-top: 10px;
+label {
+  padding: 0.5rem;
+}
+
+.formContainer:hover {
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+}
+
+.formContainer .inputCreatePost .textAreaPost {
+  height: 50px;
+  margin-top: 10vh;
   margin-bottom: 10px;
   border: 2px solid grey;
-  border-radius: 5px;
+  border-radius: 10px;
   padding-left: 10px;
   font-size: 20px;
+  border-radius: 10px;
+}
+
+input[type="text"] {
+  border-radius: 10px;
+  border: 1px solid grey;
+  height: 50px;
+}
+
+.textAreaPost {
+  border-radius: 10px;
+  height: 30vh;
+  /* background-color:whitesmoke;
+  opacity: 0.4 */
 }
 
 .formContainer button {
@@ -164,6 +189,17 @@ span {
 } */
 
 @media (max-width: 600px) {
+  .formContainer {
+    width: 70vw;
+  }
+
+  .postText {
+    height: 300px;
+  }
+
+  .post {
+    width: 90vw;
+  }
   .navbar .links {
     flex: 70%;
     height: 100%;
@@ -180,6 +216,7 @@ span {
     flex: 20%;
     height: 100%;
     display: flex;
+
     justify-content: flex-end;
     align-items: right;
   }
@@ -210,7 +247,7 @@ span {
   flex: 50%;
   height: 100%;
   display: flex;
-  justify-content:right;
+  justify-content: right;
   align-items: center;
 }
 a {
@@ -233,14 +270,12 @@ a {
   border-color: grey;
   border-style: solid;
   border-width: 1px;
-  width: 133px;
+  width: 40px;
   height: 40px;
   cursor: pointer;
   background-color: white;
   color: #27374c;
 }
-
-
 
 /* INDIVIDUAL POST */
 .postPage {
