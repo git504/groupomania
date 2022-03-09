@@ -26,7 +26,7 @@ function Login() {
     const data = { username: username, password: password };
     //"https://git.heroku.com/groupomania-git504.git//auth/login"
     axios.post("http://localhost:3001/auth/login", data).then((response) => {
-      console.log(response.data.error);
+      //console.log(response.data.error);
       if (response.data.error) {
         alert(response.data.error);
       } else {

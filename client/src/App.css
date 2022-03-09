@@ -1,6 +1,6 @@
 .App {
   width: 100%;
-  height: auto;
+  height: 100vh;
   display: flex;
   align-items: center;
   flex-direction: column;
@@ -8,6 +8,9 @@
   color: #27374c;
 }
 
+.easyComment {
+  color: #27374c;
+}
 body {
   margin: 0;
   padding: 0;
@@ -24,7 +27,6 @@ body {
   margin-top: 50px;
   border: 1px solid lightgray;
   font-family: Arial, Helvetica, sans-serif;
-
   box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
 }
 
@@ -181,7 +183,7 @@ a {
   color: white;
 } */
 
-.smallBtn{
+.smallBtn {
   border-color: grey;
   border-style: solid;
   border-width: 1px;
@@ -189,7 +191,7 @@ a {
   height: 40px;
   cursor: pointer;
   background-color: white;
-  color: #27374c
+  color: #27374c;
 }
 
 .navbar {
@@ -239,7 +241,7 @@ button {
   border: none;
 }
 
- button {
+button {
   background-color: lightskyblue;
   color: white;
 }
@@ -301,7 +303,27 @@ button:hover {
   flex-direction: column;
   width: 100%;
   height: 100vh;
-  padding-top: 100px;
+  padding: 10px;
+  border: 1px solid lightgray;
+  border-color: #27374c;
+  background-color: white;
+  width: 33%;
+  height: 33%;
+  border-radius: 10px;
+  margin: 10%;
+  width: 400px;
+  height: 300px;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  margin-top: 50px;
+  border: 1px solid lightgray;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.loginContainer:hover {
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  cursor: pointer;
 }
 
 .loginContainer input,

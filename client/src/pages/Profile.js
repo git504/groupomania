@@ -36,7 +36,7 @@ function Profile() {
               }}
             >
               {" "}
-              🔑 Change My Password
+              🔑 Change
             </button>
           )}
         </h3>
