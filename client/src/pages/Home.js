@@ -80,7 +80,7 @@ function Home() {
                 history.push(`/post/${value.id}`);
               }}
             >
-              {value.postText}
+              <p>{value.postText}</p>
             </div>
             <div className="footer">
               <div className="username">

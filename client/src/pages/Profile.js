@@ -25,25 +25,31 @@ function Profile() {
     <div className="profilePageContainer">
       <div className="basicInfo">
         {" "}
-        <h1>ACCOUNT DETAILS</h1>
-        <h3>Username :{username}</h3>
-        <h3>
-          Password :
-          {authState.username === username && (
-            <button
-              onClick={() => {
-                history.push("/changepassword");
-              }}
-            >
-              {" "}
-              🔑 Change
-            </button>
-          )}
-        </h3>
+        <h1 className="accountInfoTitle">ACCOUNT DETAILS</h1>
+        <div className="accountInfo">
+          {/* <h4>Username : {username}</h4> */}
+          <h4>
+            Change my password
+            </h4>
+            {authState.username === username && (
+              <button
+                className="smallBtn"
+                onClick={() => {
+                  history.push("/changepassword");
+                }}
+              >
+                {" "}
+                🔑
+              </button>
+            )}
+          <h4>
+            Delete my account
+
+          </h4>
+            <button className="smallBtn">🗑</button>
+        </div>
       </div>
-      <h3>DELETE ACCOUNT</h3>
       <div className="listOfPosts">
-        <h3>History :</h3>
         {listOfPosts.map((value, key) => {
           return (
             <div key={key} className="post">
@@ -54,7 +60,7 @@ function Profile() {
                   history.push(`/post/${value.id}`);
                 }}
               >
-                {value.postText}
+                <p>{value.postText}</p>
               </div>
               <div className="footer">
                 <div className="username">{value.username}</div>

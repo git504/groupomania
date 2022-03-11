@@ -9,7 +9,7 @@
 - 🔴 Administrator must be able to temper the interactions of staff;
 - 🔴 Users should be comfortable finding the latest employee entries;
 - ✅ The user's session needs to be persistent while they are connected;
-- 🔴 Creating an account needs to be simple and possible from a smartphone;
+- ✅ Creating an account needs to be simple and possible from a smartphone;
 - 🔴 Access to a forum where employees post multi-media content must be included;
 - ✅ Using a **relational database** that uses the **SQL language for data storage** ;
 - ✅ Ensuring that the user can **interrogate data** using **SQL** and submit those changes;

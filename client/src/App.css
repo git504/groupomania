@@ -1,6 +1,6 @@
 .App {
   width: 100%;
-  height: 100vh;
+  height: clamp(100vh 100% 100%);
   display: flex;
   align-items: center;
   flex-direction: column;
@@ -19,7 +19,7 @@ body {
   color: #dfe4eb;
 }
 .post {
-  width: 33vw;
+  width: 50vw;
   height: 300px;
   border-radius: 10px;
   display: flex;
@@ -42,6 +42,70 @@ body {
   color: #3a608a;
 }
 
+.modifPOst {
+  width: 100%;
+  display: flex;
+}
+
+.modifPOstBtn {
+  width: 30%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.modifPOstArea {
+  width: 70%;
+}
+
+.profilePageContainer {
+  width: 95vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.basicInfo {
+  width: 90%;
+}
+
+.accountInfo {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  margin-left: 10px;
+  margin-right: 10px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  overflow-wrap: break-word;
+  background-color: white;
+  border-radius: 10px;
+  font-size: 1rem;
+  border: 1px solid lightgray;
+  padding: 1rem;
+  width: 50vw;
+  margin: auto;
+  height: 33vh;
+}
+
+.accountInfo h4 {
+  margin: 1rem;
+  padding: 0;
+  text-align: center;
+}
+
+p {
+  margin-left: 10px;
+  margin-right: 10px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  overflow-wrap: break-word;
+  background-color: white;
+  border-radius: 10px;
+  font-size: 1rem;
+}
 .post .body {
   flex: 60%;
   font-size: small;
@@ -103,6 +167,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+  margin-bottom: 10vh;
 }
 .formContainer {
   margin-top: 10vh;
@@ -142,6 +207,11 @@ input[type="text"] {
   border-radius: 10px;
   border: 1px solid grey;
   height: 50px;
+}
+
+textarea {
+  border-radius: 10px;
+  border: 1px solid grey;
 }
 
 .textAreaPost {
@@ -192,6 +262,20 @@ span {
   .formContainer {
     width: 70vw;
   }
+  .accountInfo {
+    flex-direction: column;
+    padding: 2rem;
+  }
+
+  .modifPOstBtn {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .loginContainer {
+    width: 5px;
+  }
 
   .postText {
     height: 300px;
@@ -199,6 +283,7 @@ span {
 
   .post {
     width: 90vw;
+    margin-bottom: 3vh;
   }
   .navbar .links {
     flex: 70%;
@@ -280,12 +365,14 @@ a {
 /* INDIVIDUAL POST */
 .postPage {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
+  align-items: center;
   width: 100%;
   height: 100%;
 }
 
 .leftSide {
+  width: 95vw;
   flex: 50%;
   height: calc(100vh - 70px);
   display: grid;
@@ -294,6 +381,7 @@ a {
 
 .rightSide {
   flex: 50%;
+  width: 95vw;
   height: calc(100vh - 70px);
   display: grid;
   place-items: center;
@@ -303,15 +391,17 @@ a {
 
 .rightSide .addCommentContainer {
   flex: 20%;
-  width: 100%;
-  display: grid;
-  place-items: center;
+  width: 90vw;
+  display: flex;
+  flex-direction: column;
+  align-items: left;
+  justify-content: center;
   margin-top: 25px;
 }
 
 .addCommentContainer input,
 button {
-  width: 200px;
+  width: 10vw;
   height: 50px;
   border-radius: 8px;
   border: none;
@@ -340,26 +430,33 @@ button:hover {
   border: 2px solid #3a608a;
 }
 
-.rightSide .listOfComments {
+.rightSide {
   flex: 80%;
-  width: 100%;
+  /* width: 90vw; */
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
-.listOfComments .comment {
-  width: 70%;
-  height: auto;
-  padding: 30px;
-  border: 1px solid lightgray;
-  border-radius: 5px;
+.listOfComments {
+  width: 90vw;
+  border-radius: 10px;
   margin-top: 20px;
 }
 
+.comment {
+  height: auto;
+  padding: 30px;
+  border-radius: 10px;
+  border: 1px solid lightgray;
+  margin-top: 10px;
+  margin-bottom: 15px;
+  background-color: whitesmoke;
+}
+
 #individual {
-  height: 500px;
-  width: 600px;
+  /* height: 30vh; */
+  width: 90vw;
 }
 
 #individual .title,
@@ -369,6 +466,7 @@ button:hover {
 
 #individual .body {
   font-size: 25px;
+  text-overflow: ellipsis;
 }
 
 /* LOGIN */
@@ -387,7 +485,7 @@ button:hover {
   height: 33%;
   border-radius: 10px;
   margin: 10%;
-  width: 400px;
+  width: 80vw;
   height: 300px;
   border-radius: 10px;
   display: flex;
@@ -404,11 +502,13 @@ button:hover {
 
 .loginContainer input,
 button {
-  width: 200px;
+  width: clamp(100px, 15vw, 200px);
   height: 50px;
   border-radius: 8px;
   border: none;
   margin: 10px;
+  margin-left: 0%;
+  margin-right: 0;
 }
 
 /* .loginContainer button {

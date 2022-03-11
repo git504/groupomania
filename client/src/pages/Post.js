@@ -121,7 +121,7 @@ function Post() {
     >
       <div className="postPage">
         <div className="leftSide">
-          <div className="post" id="individual">
+          <div className="post postComment" id="individual">
             <div
               className="title"
               // onClick={() => {
@@ -132,12 +132,12 @@ function Post() {
             >
               {postObject.title}
             </div>
-            <div>
+            {/* <div>
               <img
                 src="/client/public/photos/joseph-keyser-RGsjc0D0p_o-unsplash.jpg"
                 alt=""
               />
-            </div>
+            </div> */}
             <div
               className="body"
               onDoubleClick={() => {
@@ -152,16 +152,20 @@ function Post() {
               {postObject.postText}
             </div>
             {onModif && (
-              <div>
-                <input
-                  type="text"
+              <div className="modifPOst">
+                <textarea
+                  className="modifPOstArea"
+                  placeholder="Say something about this..."
+                  autoComplete="off"
+                  cols="30"
+                  rows="3"
                   value={updatePostText}
+                  // placeholder="*** recycle da post ***"
                   onChange={(e) => {
                     setupdatePostText(e.target.value);
                   }}
-                  placeholder="*** recycle da post ***"
                 />{" "}
-                <div>
+                <div className="modifPOstBtn">
                   <button
                     className="smallBtn"
                     onClick={() => {
@@ -172,7 +176,7 @@ function Post() {
                       }
                     }}
                   >
-                    ♻️ edit
+                    ♻️
                   </button>
                   <button
                     className="smallBtn"
@@ -183,7 +187,7 @@ function Post() {
                       }
                     }}
                   >
-                    🔀 cancel
+                    🔀
                   </button>
                 </div>
               </div>
@@ -198,41 +202,41 @@ function Post() {
                   }}
                 >
                   {" "}
-                  🗑️ bin
+                  🗑️
                 </button>
               )}
             </div>
           </div>
         </div>
-        <div className="rightSide">
+        <div className="rightSide  postComment">
           <Form className="addCommentContainer">
-            <div>
-              <Field
-                name="comment"
-                type="text"
-                placeholder="start a new discussion..."
-                autoComplete="off"
-                value={newComment.commentText}
-                onChange={(event) => {
-                  setNewComment({ commentText: event.target.value, id: null });
-                }}
-              />
-              <button type="submit" onClick={addComment}>
-                comment
-              </button>
-              <div></div>
-            </div>
+            <Field
+              as="textarea"
+              name="comment"
+              type="text"
+              placeholder="Say something about this..."
+              autoComplete="off"
+              cols="30"
+              rows="3"
+              value={newComment.commentText}
+              onChange={(event) => {
+                setNewComment({ commentText: event.target.value, id: null });
+              }}
+            />
+            <button type="submit" onClick={addComment}>
+              comment
+            </button>
           </Form>
           <div className="listOfComments">
-                <ErrorMessage
-                  className="easyComment"
-                  name="comment"
-                  component="span"
-                />
+            <ErrorMessage
+              className="easyComment"
+              name="comment"
+              component="span"
+            />
             {comments.map((comment, key) => {
               return (
                 <div key={key} className="comment">
-                  <h4>{comment.commentBody}</h4>
+                  <p>{comment.commentBody}</p>
 
                   <label>
                     ⏩ <strong>{comment.username}</strong> commented on your
@@ -245,7 +249,7 @@ function Post() {
                         deleteComment(comment.id);
                       }}
                     >
-                      🗑️ bin
+                      🗑️
                     </button>
                   )}
                 </div>
