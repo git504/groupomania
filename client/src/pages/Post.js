@@ -149,7 +149,7 @@ function Post() {
               }}
             >
               {" "}
-              {postObject.postText}
+             <p> {postObject.postText}</p>
             </div>
             {onModif && (
               <div className="modifPOst">

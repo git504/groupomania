@@ -2,18 +2,18 @@ import React, { useState, useContext } from "react";
 import axios from "axios";
 import { useHistory } from "react-router-dom";
 import { AuthContext } from "../helpers/AuthContext";
-import { Formik, Form, Field, ErrorMessage } from "formik";
-import * as Yup from "yup";
+// import { Formik, Form, Field, ErrorMessage } from "formik";
+// import * as Yup from "yup";
 
-const validationSchema = Yup.object().shape({
-  username: Yup.string().min(1).max(15).required("🙅 please try again"),
-  password: Yup.string().min(1).max(150).required("🚫 password is invalid"),
-});
+// const validationSchema = Yup.object().shape({
+//   username: Yup.string().min(1).max(15).required("🙅 please try again"),
+//   password: Yup.string().min(1).max(150).required("🚫 password is invalid"),
+// });
 
-const initialValues = {
-  username: "username",
-  password: "password",
-};
+// const initialValues = {
+//   username: "username",
+//   password: "password",
+// };
 
 function Login() {
   const [username, setUsername] = useState("");
@@ -42,15 +42,15 @@ function Login() {
   };
 
   return (
-    <Formik
-      initialValues={initialValues}
-      onClick={login}
-      validationSchema={validationSchema}
+    <div
+    // initialValues={initialValues}
+    // onClick={login}
+    // validationSchema={validationSchema}
     >
-      <Form className="loginContainer">
+      <div className="loginContainer">
         <label>Username</label>
-        <ErrorMessage name="username" component="span" />
-        <Field
+        {/* <ErrorMessage name="username" component="span" /> */}
+        <input
           name="username"
           type="text"
           placeholder="👤user"
@@ -59,8 +59,8 @@ function Login() {
           }}
         />
         <label>Password</label>
-        <ErrorMessage name="password" component="span" />
-        <Field
+        {/* <ErrorMessage name="password" component="span" /> */}
+        <input
           name="password"
           type="password"
           placeholder="🔐️*******"
@@ -68,9 +68,12 @@ function Login() {
             setPassword(event.target.value);
           }}
         />
-        <button type="submit" onClick={login}> Login </button>
-      </Form>
-    </Formik>
+        <button type="submit" onClick={login}>
+          {" "}
+          Login{" "}
+        </button>
+      </div>
+    </div>
   );
 }
 

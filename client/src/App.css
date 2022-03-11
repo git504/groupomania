@@ -275,6 +275,7 @@ span {
 
   .loginContainer {
     width: 5px;
+    margin: auto;
   }
 
   .postText {
@@ -484,13 +485,14 @@ button:hover {
   width: 33%;
   height: 33%;
   border-radius: 10px;
-  margin: 10%;
+  /* margin: 10%; */
   width: 80vw;
   height: 300px;
   border-radius: 10px;
   display: flex;
   flex-direction: column;
   margin-top: 50px;
+  margin-bottom:50px;
   border: 1px solid lightgray;
   font-family: Arial, Helvetica, sans-serif;
 }
@@ -502,7 +504,7 @@ button:hover {
 
 .loginContainer input,
 button {
-  width: clamp(100px, 15vw, 200px);
+  width: clamp(30vw, 15vw, 200px);
   height: 50px;
   border-radius: 8px;
   border: none;
