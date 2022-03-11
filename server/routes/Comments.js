@@ -5,7 +5,10 @@ const { validateToken } = require("../middlewares/AuthMiddleware");
 
 router.get("/:postId", async (req, res) => {
   const postId = req.params.postId;
-  const comments = await Comments.findAll({ where: { PostId: postId } });
+  const comments = await Comments.findAll({
+    order: [["updatedAt", "DESC"]],
+    where: { PostId: postId },
+  });
   res.json(comments);
 });
 
@@ -15,7 +18,7 @@ router.post("/", validateToken, async (req, res) => {
   comment.username = username;
   await Comments.create(comment).then((resP) => {
     console.log(resP);
-    res.json(resP)
+    res.json(resP);
   });
 
   //res.json(comment);

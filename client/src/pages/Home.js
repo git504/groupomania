@@ -68,9 +68,14 @@ function Home() {
       });
   };
 
+
+  
   return (
     <div>
       {listOfPosts.map((value, key) => {
+        let date = value.createdAt;
+        console.log(date);
+
         return (
           <div key={key} className="post">
             <div className="title"> {value.title} </div>
