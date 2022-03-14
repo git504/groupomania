@@ -16,6 +16,20 @@ router.post("/", async (req, res) => {
   });
 });
 
+//delete user
+router.delete("/deleteuser/:id", validateToken, async (req, res) => {
+  const userId = req.params.id;
+  // await Users.destroy({
+  //   where: {
+  //     id: userId,
+  //   },
+  // });
+  console.log("test" + userId);
+   res.json(userId);
+  //res.json(`USER NBR ${userId} DELETED SUCCESSFULLY`);
+});
+
+
 router.post("/login", async (req, res) => {
   const { username, password } = req.body;
 
@@ -39,6 +53,7 @@ router.post("/login", async (req, res) => {
 
 router.get("/auth", validateToken, (req, res) => {
   res.json(req.user);
+  console.log(res.json(req.user));
 });
 
 router.get("/basicinfo/:id", async (req, res) => {

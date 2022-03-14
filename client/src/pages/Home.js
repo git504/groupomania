@@ -69,12 +69,12 @@ function Home() {
   };
 
 
-  
+
   return (
     <div>
       {listOfPosts.map((value, key) => {
-        let date = value.createdAt;
-        console.log(date);
+        // let date = value.createdAt;
+        // console.log(date);
 
         return (
           <div key={key} className="post">

@@ -57,6 +57,7 @@ router.delete("/:postId", validateToken, async (req, res) => {
     },
   });
 
+
   res.json("DELETED SUCCESSFULLY");
 });
 
