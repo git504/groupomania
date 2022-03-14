@@ -19,16 +19,14 @@ router.post("/", async (req, res) => {
 //delete user
 router.delete("/deleteuser/:id", validateToken, async (req, res) => {
   const userId = req.params.id;
-  // await Users.destroy({
-  //   where: {
-  //     id: userId,
-  //   },
-  // });
-  console.log("test" + userId);
-   res.json(userId);
+  await Users.destroy({
+    where: {
+      id: userId,
+    },
+  });
+  res.json(userId);
   //res.json(`USER NBR ${userId} DELETED SUCCESSFULLY`);
 });
-
 
 router.post("/login", async (req, res) => {
   const { username, password } = req.body;
