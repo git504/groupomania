@@ -11,6 +11,10 @@ function Profile() {
   const [username, setUsername] = useState("");
   const [listOfPosts, setListOfPosts] = useState([]);
   const { authState, setAuthState } = useContext(AuthContext);
+  const [profileRole, setProfileRole] = useState("visitor");
+
+  const adminRole = authState.role === "admin";
+  // console.log(adminRole);
 
   const deleteUser = () => {
     axios
@@ -21,7 +25,7 @@ function Profile() {
       .then((response) => {
         console.log(response);
         setAuthState({ username: "", id: 0, role: "", status: false });
-        alert(authState.status);
+        //alert(authState.status);
         history.push("/");
       });
   };
@@ -30,6 +34,7 @@ function Profile() {
     //`https://git.heroku.com/groupomania-git504.git/auth/basicinfo/${id}`
     axios.get(`http://localhost:3001/auth/basicinfo/${id}`).then((response) => {
       setUsername(response.data.username);
+      setProfileRole(response.data.role);
     });
     //`https://git.heroku.com/groupomania-git504.git/posts/byuserId/${id}`
     axios.get(`http://localhost:3001/posts/byuserId/${id}`).then((response) => {
@@ -42,11 +47,11 @@ function Profile() {
       <div className="basicInfo">
         {" "}
         <h1 className="accountInfoTitle">ACCOUNT DETAILS</h1>
-        <h4>USER : {username}</h4>
-        <h4>ROLE : {authState.role}</h4>
+        <h5>PROFILE ACCOUNT : {username}</h5>
+        <h5>ROLE :{profileRole}</h5>
         <div className="accountInfo">
           <h4>Change my password</h4>
-          {authState.username === username  && (
+          {authState.username === username || adminRole === true ? (
             <button
               className="smallBtn"
               onClick={() => {
@@ -56,12 +61,16 @@ function Profile() {
               {" "}
               🔑
             </button>
+          ) : (
+            ""
           )}
           <h4>Delete my account</h4>
-          {authState.username === username && (
+          {authState.username === username || adminRole === true ? (
             <button className="smallBtn" onClick={deleteUser}>
               🗑
             </button>
+          ) : (
+            ""
           )}
         </div>
       </div>

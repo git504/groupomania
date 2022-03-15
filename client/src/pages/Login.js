@@ -40,8 +40,8 @@ function Login() {
           role: response.data.role,
           status: true,
         });
-        // setRole(response.data.role);
-        console.log(role);
+        setRole(response.data.role);
+        //console.log(role);
         history.push("/");
       }
     });

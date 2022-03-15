@@ -6,7 +6,7 @@
 - 🟢 The **log-in details** need to be **secured** as well;
 - 🟢 The **web app** needs to connect/disconnect to the app;
 - 🟢 The access to a **forum** where staff posts has to be present;
-- 🔴 Administrator must be able to temper the interactions of staff;
+- 🟢 Administrator must be able to temper the interactions of staff;
 - 🟢 Users should be comfortable **finding the latest employee entries**;
 - 🟢 The **user's session** needs to be persistent while they are connected;
 - 🟢 Creating an account needs to be simple and possible from a **smartphone**;

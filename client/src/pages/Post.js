@@ -21,6 +21,9 @@ function Post() {
   const [updatePostText, setupdatePostText] = useState("");
   const [onModif, setOnModif] = useState(false);
 
+  const adminRole = authState.role === "admin";
+  // console.log(adminRole);
+
   let history = useHistory();
 
   useEffect(() => {
@@ -59,7 +62,7 @@ function Post() {
           if (response.data.error) {
             console.log(response.data.error);
           } else {
-            console.log(response.data);
+            // console.log(response.data);
             const commentToAdd = {
               ...response.data,
             };
@@ -141,7 +144,10 @@ function Post() {
             <div
               className="body"
               onDoubleClick={() => {
-                if (authState.username === postObject.username) {
+                if (
+                  authState.username === postObject.username ||
+                  adminRole === true
+                ) {
                   // editPost("body");
                   setOnModif(true);
                   setupdatePostText(postObject.postText);
@@ -169,7 +175,10 @@ function Post() {
                   <button
                     className="smallBtn"
                     onClick={() => {
-                      if (authState.username === postObject.username) {
+                      if (
+                        authState.username === postObject.username ||
+                        adminRole === true
+                      ) {
                         editPost(updatePostText);
                         setOnModif(false);
                         setupdatePostText("");
@@ -181,7 +190,10 @@ function Post() {
                   <button
                     className="smallBtn"
                     onClick={() => {
-                      if (authState.username === postObject.username) {
+                      if (
+                        authState.username === postObject.username ||
+                        adminRole === true
+                      ) {
                         setOnModif(false);
                         setupdatePostText("");
                       }
@@ -194,7 +206,8 @@ function Post() {
             )}
             <div className="footer">
               from {postObject.username}
-              {authState.username === postObject.username && (
+              {authState.username === postObject.username ||
+              adminRole === true ? (
                 <button
                   className="smallBtn"
                   onClick={() => {
@@ -204,6 +217,8 @@ function Post() {
                   {" "}
                   🗑️
                 </button>
+              ) : (
+                ""
               )}
             </div>
           </div>

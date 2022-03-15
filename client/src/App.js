@@ -18,7 +18,6 @@ import ChangePassword from "./pages/ChangePassword";
 import { AuthContext } from "./helpers/AuthContext";
 import { useState, useEffect } from "react";
 import axios from "axios";
-import { useHistory } from "react-router-dom";
 
 function App() {
   const [authState, setAuthState] = useState({
@@ -28,7 +27,6 @@ function App() {
     status: false,
   });
 
-  const history = useHistory();
 
   useEffect(() => {
     axios
@@ -108,7 +106,7 @@ function App() {
                 return authState.status ? (
                   <Profile />
                 ) : (
-                  <Redirect to="/login" />
+                  <Redirect to="/" />
                 );
               }}
             />
