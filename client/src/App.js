@@ -57,7 +57,7 @@ function App() {
 
   const logout = () => {
     alert("deconnexion");
-    //localStorage.removeItem("accessToken");
+    localStorage.removeItem("accessToken");
     setAuthState({ username: "", id: 0, role: "", status: false });
     //alert(authState.status);
     // history.push("/login");
