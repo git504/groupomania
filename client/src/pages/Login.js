@@ -16,6 +16,8 @@ import { AuthContext } from "../helpers/AuthContext";
 // };
 
 function Login() {
+  const [role, setRole] = useState("visitor");
+
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const { setAuthState } = useContext(AuthContext);
@@ -23,7 +25,7 @@ function Login() {
   let history = useHistory();
 
   const login = () => {
-    const data = { username: username, password: password };
+    const data = { username: username, password: password, role: role };
     //"https://git.heroku.com/groupomania-git504.git//auth/login"
     axios.post("http://localhost:3001/auth/login", data).then((response) => {
       //console.log(response.data.error);
@@ -31,11 +33,15 @@ function Login() {
         alert(response.data.error);
       } else {
         localStorage.setItem("accessToken", response.data.token);
+        //console.log(response.data);
         setAuthState({
           username: response.data.username,
           id: response.data.id,
+          role: response.data.role,
           status: true,
         });
+        // setRole(response.data.role);
+        console.log(role);
         history.push("/");
       }
     });
@@ -68,10 +74,16 @@ function Login() {
             setPassword(event.target.value);
           }}
         />
-        <button type="submit" onClick={login}>
-          {" "}
-          Login{" "}
-        </button>
+        <div>
+          <button className="loginButton" type="submit" onClick={login}>
+            {" "}
+            Login{" "}
+          </button>
+          {/* <button className="loginButton" type="submit" onClick={loginadmin}>
+            {" "}
+            admin{" "}
+          </button> */}
+        </div>
       </div>
     </div>
   );

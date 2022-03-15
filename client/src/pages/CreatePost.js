@@ -22,7 +22,7 @@ function CreatePost() {
   }, [history]);
 
   const validationSchema = Yup.object().shape({
-    title: Yup.string().min(1).max(15).required("a title is needed 😉"),
+    title: Yup.string().min(1).max(33).required("a title is needed 😉"),
     postText: Yup.string().min(1).max(150).required("a post is needed 🔤"),
   });
 

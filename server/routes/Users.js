@@ -6,11 +6,13 @@ const { validateToken } = require("../middlewares/AuthMiddleware");
 const { sign } = require("jsonwebtoken");
 
 router.post("/", async (req, res) => {
-  const { username, password } = req.body;
+  const { username, password, role } = req.body;
+
   bcrypt.hash(password, 10).then((hash) => {
     Users.create({
       username: username,
       password: hash,
+      role: role,
     });
     res.json("SUCCESS");
   });
@@ -34,7 +36,7 @@ router.delete("/deleteuser/:id", validateToken, async (req, res) => {
 });
 
 router.post("/login", async (req, res) => {
-  const { username, password } = req.body;
+  const { username, password, role } = req.body;
 
   const user = await Users.findOne({ where: { username: username } });
 
@@ -46,10 +48,15 @@ router.post("/login", async (req, res) => {
         res.json({ error: "Wrong Username And Password Combination" });
 
       const accessToken = sign(
-        { username: user.username, id: user.id },
+        { username: user.username, role: user.role, id: user.id },
         "importantsecret"
       );
-      res.json({ token: accessToken, username: username, id: user.id });
+      res.json({
+        token: accessToken,
+        username: username,
+        role: user.role,
+        id: user.id,
+      });
     });
   }
 });

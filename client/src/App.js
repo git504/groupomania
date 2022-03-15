@@ -1,5 +1,11 @@
 import "./App.css";
-import { BrowserRouter as Router, Route, Switch, Link } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Route,
+  Switch,
+  Link,
+  Redirect,
+} from "react-router-dom";
 import Home from "./pages/Home";
 import CreatePost from "./pages/CreatePost";
 import Post from "./pages/Post";
@@ -12,13 +18,17 @@ import ChangePassword from "./pages/ChangePassword";
 import { AuthContext } from "./helpers/AuthContext";
 import { useState, useEffect } from "react";
 import axios from "axios";
+import { useHistory } from "react-router-dom";
 
 function App() {
   const [authState, setAuthState] = useState({
     username: "",
     id: 0,
+    role: "",
     status: false,
   });
+
+  const history = useHistory();
 
   useEffect(() => {
     axios
@@ -32,19 +42,25 @@ function App() {
         if (response.data.error) {
           setAuthState({ ...authState, status: false });
         } else {
+          // console.log(response.data);
           setAuthState({
             username: response.data.username,
             id: response.data.id,
+            role: response.data.role,
             status: true,
           });
         }
       });
   }, []);
+
   // https://github.com/facebook/react/issues/14920
 
   const logout = () => {
-    localStorage.removeItem("accessToken");
-    setAuthState({ username: "", id: 0, status: false });
+    alert("deconnexion");
+    //localStorage.removeItem("accessToken");
+    setAuthState({ username: "", id: 0, role: "", status: false });
+    //alert(authState.status);
+    // history.push("/login");
     //return Login;
   };
 
@@ -84,7 +100,18 @@ function App() {
             <Route path="/post/:id" exact component={Post} />
             <Route path="/registration" exact component={Registration} />
             <Route path="/login" exact component={Login} />
-            <Route path="/profile/:id" exact component={Profile} />
+
+            <Route
+              path="/profile/:id"
+              exact
+              component={() => {
+                return authState.status ? (
+                  <Profile />
+                ) : (
+                  <Redirect to="/login" />
+                );
+              }}
+            />
             <Route path="/changepassword" exact component={ChangePassword} />
             <Route path="*" exact component={PageNotFound} />
           </Switch>

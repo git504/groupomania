@@ -387,6 +387,9 @@ a {
   display: grid;
   place-items: center;
 }
+/* .loginButton {
+  margin: 0.5rem;
+} */
 
 .rightSide {
   flex: 50%;
@@ -525,8 +528,8 @@ button {
   border-radius: 8px;
   border: none;
   margin: 10px;
-  margin-left: 0%;
-  margin-right: 0;
+  /* margin-left: 0%;
+  margin-right: 0; */
 }
 
 /* .loginContainer button {

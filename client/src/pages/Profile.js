@@ -2,13 +2,29 @@ import React, { useEffect, useState, useContext } from "react";
 import { useParams, useHistory } from "react-router-dom";
 import axios from "axios";
 import { AuthContext } from "../helpers/AuthContext";
+// import { role } from "./Login";
 
 function Profile() {
   let { id } = useParams();
+  //alert(id);
   let history = useHistory();
   const [username, setUsername] = useState("");
   const [listOfPosts, setListOfPosts] = useState([]);
-  const { authState } = useContext(AuthContext);
+  const { authState, setAuthState } = useContext(AuthContext);
+
+  const deleteUser = () => {
+    axios
+      //"https://git.heroku.com/groupomania-git504.git/posts"
+      .delete(`http://localhost:3001/auth/deleteuser/${id}`, {
+        headers: { accessToken: localStorage.getItem("accessToken") },
+      })
+      .then((response) => {
+        console.log(response);
+        setAuthState({ username: "", id: 0, role: "", status: false });
+        alert(authState.status);
+        history.push("/");
+      });
+  };
 
   useEffect(() => {
     //`https://git.heroku.com/groupomania-git504.git/auth/basicinfo/${id}`
@@ -26,27 +42,27 @@ function Profile() {
       <div className="basicInfo">
         {" "}
         <h1 className="accountInfoTitle">ACCOUNT DETAILS</h1>
+        <h4>USER : {username}</h4>
+        <h4>ROLE : {authState.role}</h4>
         <div className="accountInfo">
-          {/* <h4>Username : {username}</h4> */}
-          <h4>
-            Change my password
-            </h4>
-            {authState.username === username && (
-              <button
-                className="smallBtn"
-                onClick={() => {
-                  history.push("/changepassword");
-                }}
-              >
-                {" "}
-                🔑
-              </button>
-            )}
-          <h4>
-            Delete my account
-
-          </h4>
-            <button className="smallBtn">🗑</button>
+          <h4>Change my password</h4>
+          {authState.username === username  && (
+            <button
+              className="smallBtn"
+              onClick={() => {
+                history.push("/changepassword");
+              }}
+            >
+              {" "}
+              🔑
+            </button>
+          )}
+          <h4>Delete my account</h4>
+          {authState.username === username && (
+            <button className="smallBtn" onClick={deleteUser}>
+              🗑
+            </button>
+          )}
         </div>
       </div>
       <div className="listOfPosts">
