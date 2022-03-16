@@ -68,8 +68,6 @@ function Home() {
       });
   };
 
-
-
   return (
     <div>
       {listOfPosts.map((value, key) => {

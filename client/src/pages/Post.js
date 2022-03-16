@@ -257,7 +257,8 @@ function Post() {
                     ⏩ <strong>{comment.username}</strong> commented on your
                     post
                   </label>
-                  {authState.username === comment.username && (
+                  {authState.username === comment.username ||
+                  adminRole === true ? (
                     <button
                       className="smallBtn"
                       onClick={() => {
@@ -266,6 +267,8 @@ function Post() {
                     >
                       🗑️
                     </button>
+                  ) : (
+                    ""
                   )}
                 </div>
               );
