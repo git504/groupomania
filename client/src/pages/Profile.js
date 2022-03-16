@@ -51,11 +51,11 @@ function Profile() {
         <h5>ROLE :{profileRole}</h5>
         <div className="accountInfo">
           <h4>Change my password</h4>
-          {authState.username === username || adminRole === true ? (
+          {authState.username === username ? (
             <button
               className="smallBtn"
               onClick={() => {
-                history.push("/changepassword");
+                history.push(`/changepassword/${id}`);
               }}
             >
               {" "}

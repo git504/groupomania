@@ -14,3 +14,4 @@
 - 🟢 Using a **relational database** that uses the **SQL language for data storage** ;
 - 🟢 Ensuring that the user can **interrogate data** using **SQL** and submit those changes;
 - 🟢 The profile should contain very limited pieces of information so that it can be filled out fast;
+  / eviter doublon SQL

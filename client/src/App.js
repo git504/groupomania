@@ -27,7 +27,6 @@ function App() {
     status: false,
   });
 
-
   useEffect(() => {
     axios
       //"https://git.heroku.com/groupomania-git504.git/auth/auth"
@@ -71,7 +70,7 @@ function App() {
               {!authState.status ? (
                 <>
                   <Link to="/login">Login</Link>
-                  <Link to="/registration">SignIn</Link>
+                  <Link to="/registration">SignUp</Link>
                 </>
               ) : (
                 <>
@@ -103,14 +102,14 @@ function App() {
               path="/profile/:id"
               exact
               component={() => {
-                return authState.status ? (
-                  <Profile />
-                ) : (
-                  <Redirect to="/" />
-                );
+                return authState.status ? <Profile /> : <Redirect to="/" />;
               }}
             />
-            <Route path="/changepassword" exact component={ChangePassword} />
+            <Route
+              path="/changepassword/:id"
+              exact
+              component={ChangePassword}
+            />
             <Route path="*" exact component={PageNotFound} />
           </Switch>
         </Router>

@@ -1,7 +1,19 @@
 const express = require("express");
 const app = express();
-const port = 3001;
 
+const normalizePort = (val) => {
+  const port = parseInt(val, 10);
+
+  if (isNaN(port)) {
+    return val;
+  }
+  if (port >= 0) {
+    return port;
+  }
+  return false;
+};
+
+const port = normalizePort(process.env.PORT || "3001");
 const cors = require("cors");
 require("dotenv").config();
 
@@ -24,8 +36,8 @@ app.use("/likes", likesRouter);
 db.sequelize
   .sync()
   .then(() => {
-    app.listen(process.env.PORT || port, () => {
-      console.log("SERVER RUNNING ON PORT " + process.env.PORT);
+    app.listen(port, () => {
+      console.log("SERVER RUNNING ON PORT " + port);
     });
   })
   .catch((err) => {

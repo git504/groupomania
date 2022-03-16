@@ -1,15 +1,17 @@
 import React, { useState } from "react";
 import axios from "axios";
+import { useParams } from "react-router-dom";
 
 function ChangePassword() {
   const [oldPassword, setOldPassword] = useState("");
   const [newPassword, setNewPassword] = useState("");
+  let { id } = useParams();
 
   const changePassword = () => {
     axios
       .put(
         //"https://git.heroku.com/groupomania-git504.git/auth/changepassword"
-        "http://localhost:3001/auth/changepassword",
+        `http://localhost:3001/auth/changepassword/${id}`,
         {
           oldPassword: oldPassword,
           newPassword: newPassword,
@@ -21,8 +23,11 @@ function ChangePassword() {
         }
       )
       .then((response) => {
+        console.log(response);
         if (response.data.error) {
           alert(response.data.error);
+        } else {
+          alert("it's done !");
         }
       });
   };
