@@ -71,9 +71,14 @@ function CreatePost() {
             cols="30"
             rows="15"
           ></Field>
-          <input type="file" name="postImage" />
+<div>
+          <label for="file" class="btn">
+            📷
+          </label>
+          <input id="file" name="file" type="file" accept="image/*" />
 
-          <button type="submit">SEND</button>
+            <button type="submit">SEND</button>
+            </div>
         </Form>
       </Formik>
     </div>

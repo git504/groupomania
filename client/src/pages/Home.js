@@ -83,6 +83,9 @@ function Home() {
                 history.push(`/post/${value.id}`);
               }}
             >
+              <div>
+                <img src={value.image} alt="img from a post" />
+              </div>
               <p>{value.postText}</p>
             </div>
             <div className="footer">

@@ -391,6 +391,19 @@ a {
   margin: 0.5rem;
 } */
 
+#file {
+  display: none;
+}
+
+.btn {
+  font-weight: lighter;
+  margin: 0%;
+}
+
+.btn:hover {
+  font-weight: bold;
+}
+
 .rightSide {
   flex: 50%;
   width: 95vw;
