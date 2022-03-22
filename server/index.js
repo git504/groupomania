@@ -32,6 +32,8 @@ const usersRouter = require("./routes/Users");
 app.use("/auth", usersRouter);
 const likesRouter = require("./routes/Likes");
 app.use("/likes", likesRouter);
+//static img folder
+app.use("/images", express.static("../server/middlewares/Images"));
 
 db.sequelize
   .sync()

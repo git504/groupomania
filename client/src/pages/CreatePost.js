@@ -44,7 +44,12 @@ function CreatePost() {
         onSubmit={onSubmit}
         validationSchema={validationSchema}
       >
-        <Form className="formContainer">
+        <Form
+          className="formContainer"
+          method="POST"
+          action="/postimg"
+          encType="multipart/form-data"
+        >
           <label>title</label>
           <ErrorMessage name="title" component="span" />
           <Field
@@ -66,6 +71,8 @@ function CreatePost() {
             cols="30"
             rows="15"
           ></Field>
+          <input type="file" name="postImage" />
+
           <button type="submit">SEND</button>
         </Form>
       </Formik>
