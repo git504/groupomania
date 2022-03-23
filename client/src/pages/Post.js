@@ -135,12 +135,7 @@ function Post() {
             >
               {postObject.title}
             </div>
-            {/* <div>
-              <img
-                src="/client/public/photos/joseph-keyser-RGsjc0D0p_o-unsplash.jpg"
-                alt=""
-              />
-            </div> */}
+
             <div
               className="body"
               onDoubleClick={() => {
@@ -155,8 +150,15 @@ function Post() {
               }}
             >
               {" "}
-              <p> {postObject.postText}</p>
-            </div>
+              <div>
+                <img
+                  className="thumbnail"
+                  src={`http://localhost:3001/${postObject.image}`}
+                  alt="img from a post"
+                />
+                <p> {postObject.postText}</p>
+              </div>
+
             {onModif && (
               <div className="modifPOst">
                 <textarea
@@ -202,8 +204,10 @@ function Post() {
                     🔀
                   </button>
                 </div>
-              </div>
-            )}
+                </div>
+
+)}
+</div>
             <div className="footer">
               from {postObject.username}
               {authState.username === postObject.username ||
@@ -223,7 +227,7 @@ function Post() {
             </div>
           </div>
         </div>
-        <div className="rightSide  postComment">
+        <div className="rightSide">
           <Form className="addCommentContainer">
             <Field
               as="textarea"
