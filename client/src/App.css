@@ -395,6 +395,18 @@ a {
   display: none;
 }
 
+.thumbnail {
+  border-radius: 8px;
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin-top: 0.5rem;
+  margin-left: auto;
+  margin-right: auto;
+  /* width: 50%; */
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
 .btn {
   font-weight: lighter;
   margin-top: 1rem;

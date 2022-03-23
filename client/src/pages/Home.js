@@ -87,7 +87,7 @@ function Home() {
               }}
             >
               <div>
-                <img
+                <img className="thumbnail"
                   src={`http://localhost:3001/${value.image}`}
                   alt="img from a post"
                 />
