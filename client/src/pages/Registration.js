@@ -46,7 +46,7 @@ function Registration() {
             autoComplete="off"
             // id="inputCreatePost"
             name="username"
-            placeholder="👤Johnny Hallyday"
+            placeholder="👤Mouche Farouche"
           />
 
           <label>Password</label>

@@ -8,6 +8,7 @@ import ThumbUpAltIcon from "@material-ui/icons/ThumbUpAlt";
 function Home() {
   const [listOfPosts, setListOfPosts] = useState([]);
   const [likedPosts, setLikedPosts] = useState([]);
+
   //const { authState } = useContext(AuthContext);
   let history = useHistory();
 
@@ -30,6 +31,8 @@ function Home() {
         });
     }
   }, [history]);
+
+  console.log(listOfPosts);
 
   const likeAPost = (postId) => {
     axios
@@ -72,7 +75,7 @@ function Home() {
     <div>
       {listOfPosts.map((value, key) => {
         // let date = value.createdAt;
-        // console.log(date);
+        //console.log(value.image);
 
         return (
           <div key={key} className="post">
@@ -84,7 +87,10 @@ function Home() {
               }}
             >
               <div>
-                <img src={value.image} alt="img from a post" />
+                <img
+                  src={`http://localhost:3001/${value.image}`}
+                  alt="img from a post"
+                />
               </div>
               <p>{value.postText}</p>
             </div>

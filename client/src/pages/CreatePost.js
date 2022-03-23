@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 //useContext,
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
@@ -8,6 +8,7 @@ import { useHistory } from "react-router-dom";
 
 function CreatePost() {
   //const { authState } = useContext(AuthContext);
+  const [image, setImage] = useState("");
 
   let history = useHistory();
   const initialValues = {
@@ -27,9 +28,14 @@ function CreatePost() {
   });
 
   const onSubmit = (data) => {
+    const formData = new FormData();
+    formData.append("image", image);
+    formData.append("title", data.title);
+    formData.append("postText", data.postText);
+
     axios
       //"https://git.heroku.com/groupomania-git504.git/posts"
-      .post("http://localhost:3001/posts", data, {
+      .post("http://localhost:3001/posts", formData, {
         headers: { accessToken: localStorage.getItem("accessToken") },
       })
       .then((response) => {
@@ -42,6 +48,8 @@ function CreatePost() {
       <Formik
         initialValues={initialValues}
         onSubmit={onSubmit}
+        method="POST"
+        encType="multipart/form-data"
         validationSchema={validationSchema}
       >
         <Form
@@ -71,14 +79,20 @@ function CreatePost() {
             cols="30"
             rows="15"
           ></Field>
-<div>
-          <label for="file" class="btn">
-            📷
-          </label>
-          <input id="file" name="file" type="file" accept="image/*" />
-
-            <button type="submit">SEND</button>
-            </div>
+          <div>
+            <label htmlFor="file">📷</label>
+            <input
+              id="file"
+              className="btn"
+              type="file"
+              name="image"
+              size="lg"
+              onChange={(e) => setImage(e.target.files[0])}
+            />
+            <button className="btn" type="submit">
+              SEND
+            </button>
+          </div>
         </Form>
       </Formik>
     </div>

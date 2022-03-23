@@ -397,11 +397,18 @@ a {
 
 .btn {
   font-weight: lighter;
-  margin: 0%;
+  margin-top: 1rem;
+  border-style: solid;
+  /* border-color: #f1efea; */
+  border-width: 1px;
+  width: 33%;
 }
 
+.btn:focus {
+  border: 1px solid #d9d5e0;
+}
 .btn:hover {
-  font-weight: bold;
+  background-color: #45a049;
 }
 
 .rightSide {
