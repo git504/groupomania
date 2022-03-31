@@ -18,10 +18,6 @@ function Post() {
   const [comments, setComments] = useState([]);
   const [newComment, setNewComment] = useState({ commentText: "", id: null });
   const { authState } = useContext(AuthContext);
-  const [updatePostText, setupdatePostText] = useState("");
-  const [postImage, setPostImage] = useState("");
-
-  const [onModif, setOnModif] = useState(false);
 
   const adminRole = authState.role === "admin";
   // console.log(adminRole);
@@ -33,10 +29,7 @@ function Post() {
     axios.get(`http://localhost:3001/posts/byId/${id}`).then((response) => {
       console.log(response.data);
       setPostObject(response.data);
-      setPostImage(response.data.image);
-      console.log(postImage);
     });
-
     //`https://git.heroku.com/groupomania-git504.git/comments/${id}`
     axios.get(`http://localhost:3001/comments/${id}`).then((response) => {
       setComments(response.data);
@@ -104,23 +97,6 @@ function Post() {
       });
   };
 
-  const editPost = (modifText) => {
-    //let newPostText = prompt("Enter New Text:");
-    axios.put(
-      //"https://git.heroku.com/groupomania-git504.git/posts/postText"
-      "http://localhost:3001/posts/postText",
-      {
-        newText: modifText,
-        id: id,
-      },
-      {
-        headers: { accessToken: localStorage.getItem("accessToken") },
-      }
-    );
-
-    setPostObject({ ...postObject, postText: modifText });
-  };
-
   return (
     <Formik
       initialValues={initialValues}
@@ -130,16 +106,7 @@ function Post() {
       <div className="postPage">
         <div className="leftSide">
           <div className="post postComment" id="individual">
-            <div
-              className="title"
-              // onClick={() => {
-              //   if (authState.username === postObject.username) {
-              //     editPost("title");
-              //   }
-              // }}
-            >
-              {postObject.title}
-            </div>
+            <div className="title">{postObject.title}</div>
 
             <div
               className="body"
@@ -148,9 +115,7 @@ function Post() {
                   authState.username === postObject.username ||
                   adminRole === true
                 ) {
-                  // editPost("body");
-                  setOnModif(true);
-                  setupdatePostText(postObject.postText);
+                  history.push(`/updatepost/${id}`);
                 }
               }}
             >
@@ -159,59 +124,12 @@ function Post() {
                 {postObject.image !== null && (
                   <img
                     className="thumbnail"
-                    src={`http://localhost:3001/${postImage}`}
+                    src={`http://localhost:3001/${postObject.image}`}
                     alt="img from a post"
                   />
                 )}
                 <p> {postObject.postText}</p>
               </div>
-              {onModif && (
-                <div className="modifPOst">
-                  <textarea
-                    className="modifPOstArea"
-                    placeholder="Say something about this..."
-                    autoComplete="off"
-                    cols="30"
-                    rows="3"
-                    value={updatePostText}
-                    // placeholder="*** recycle da post ***"
-                    onChange={(e) => {
-                      setupdatePostText(e.target.value);
-                    }}
-                  />{" "}
-                  <div className="modifPOstBtn">
-                    <button
-                      className="smallBtn"
-                      onClick={() => {
-                        if (
-                          authState.username === postObject.username ||
-                          adminRole === true
-                        ) {
-                          editPost(updatePostText);
-                          setOnModif(false);
-                          setupdatePostText("");
-                        }
-                      }}
-                    >
-                      ♻️
-                    </button>
-                    <button
-                      className="smallBtn"
-                      onClick={() => {
-                        if (
-                          authState.username === postObject.username ||
-                          adminRole === true
-                        ) {
-                          setOnModif(false);
-                          setupdatePostText("");
-                        }
-                      }}
-                    >
-                      🔀
-                    </button>
-                  </div>
-                </div>
-              )}
             </div>
             <div className="footer">
               from {postObject.username}

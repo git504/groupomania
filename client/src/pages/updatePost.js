@@ -36,7 +36,7 @@ function UpdatePost() {
 
     axios
       //"https://git.heroku.com/groupomania-git504.git/posts"
-      .put(`http://localhost:3001/posts/postText/${id}`, formData, {
+      .put(`http://localhost:3001/posts/${id}`, formData, {
         headers: { accessToken: localStorage.getItem("accessToken") },
       })
       .then((response) => {
@@ -49,13 +49,13 @@ function UpdatePost() {
       <Formik
         initialValues={initialValues}
         onSubmit={onSubmit}
-        method="POST"
+        method="PUT"
         encType="multipart/form-data"
         validationSchema={validationSchema}
       >
         <Form
           className="formContainer"
-          method="POST"
+          method="PUT"
           action="/postimg"
           encType="multipart/form-data"
         >

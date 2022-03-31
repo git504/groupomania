@@ -14,6 +14,7 @@ import Login from "./pages/Login";
 import PageNotFound from "./pages/PageNotFound";
 import Profile from "./pages/Profile";
 import ChangePassword from "./pages/ChangePassword";
+import UpdatePost from "./pages/updatePost";
 
 import { AuthContext } from "./helpers/AuthContext";
 import { useState, useEffect } from "react";
@@ -75,7 +76,6 @@ function App() {
               ) : (
                 <>
                   <Link to="/">
-                    {/* <img src="../public/logo192.png" alt="" /> */}
                     <div className="logo">Groupomania</div>{" "}
                   </Link>
                   <Link to="/createpost">Post</Link>
@@ -99,6 +99,15 @@ function App() {
           <Switch>
             <Route path="/" exact component={Home} />
             <Route path="/createpost" exact component={CreatePost} />
+
+            <Route
+              path="/updatepost/:id"
+              exact
+              component={() => {
+                return authState.status ? <UpdatePost /> : <Redirect to="/" />;
+              }}
+            />
+
             <Route path="/post/:id" exact component={Post} />
             <Route path="/registration" exact component={Registration} />
             <Route path="/login" exact component={Login} />
