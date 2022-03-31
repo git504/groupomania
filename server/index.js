@@ -24,6 +24,8 @@ app.use(cors());
 const db = require("./models");
 
 // Routers
+//static img folder
+app.use("/Images", express.static("./Images"));
 const postRouter = require("./routes/Posts");
 app.use("/posts", postRouter);
 const commentsRouter = require("./routes/Comments");
@@ -32,8 +34,6 @@ const usersRouter = require("./routes/Users");
 app.use("/auth", usersRouter);
 const likesRouter = require("./routes/Likes");
 app.use("/likes", likesRouter);
-//static img folder
-app.use("/Images", express.static("./Images"));
 
 db.sequelize
   .sync()

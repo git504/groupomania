@@ -18,6 +18,7 @@ router.get("/", validateToken, async (req, res) => {
 router.get("/byId/:id", async (req, res) => {
   const id = req.params.id;
   const post = await Posts.findByPk(id);
+  console.log(post);
   res.json(post);
 });
 
@@ -32,11 +33,11 @@ router.get("/byuserId/:id", async (req, res) => {
 });
 
 //images
-router.post("/", validateToken, upload, async (req, res) => {
+router.post("/", upload, validateToken, async (req, res) => {
   const post = req.body;
+  post.image = req.file?.path;
   post.username = req.user.username;
   post.UserId = req.user.id;
-  post.image = req.file.path;
   await Posts.create(post);
   res.json(post);
 });

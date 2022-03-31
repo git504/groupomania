@@ -85,6 +85,25 @@ function Profile() {
                   history.push(`/post/${value.id}`);
                 }}
               >
+                <div>
+                  {/* {value.image !== null && (
+                  <img
+                    className="thumbnail"
+                    src={`http://localhost:3001/${value.image}`}
+                    alt="img from a post"
+                  />
+                )} */}
+
+                  {value.image ? (
+                    <img
+                      className="thumbnail"
+                      src={`http://localhost:3001/${value.image}`}
+                      alt="img from a post"
+                    />
+                  ) : (
+                    ""
+                  )}
+                </div>
                 <p>{value.postText}</p>
               </div>
               <div className="footer">

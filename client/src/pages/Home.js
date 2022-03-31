@@ -32,7 +32,7 @@ function Home() {
     }
   }, [history]);
 
-  console.log(listOfPosts);
+  // console.log(listOfPosts);
 
   const likeAPost = (postId) => {
     axios
@@ -87,10 +87,13 @@ function Home() {
               }}
             >
               <div>
-                <img className="thumbnail"
-                  src={`http://localhost:3001/${value.image}`}
-                  alt="img from a post"
-                />
+                {value.image !== null && (
+                  <img
+                    className="thumbnail"
+                    src={`http://localhost:3001/${value.image}`}
+                    alt="img from a post"
+                  />
+                )}
               </div>
               <p>{value.postText}</p>
             </div>

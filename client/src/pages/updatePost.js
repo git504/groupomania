@@ -1,14 +1,13 @@
 import React, { useEffect, useState } from "react";
-//useContext,
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
 import axios from "axios";
-import { useHistory } from "react-router-dom";
-//import { AuthContext } from "../helpers/AuthContext";
+import { useHistory, useParams } from "react-router-dom";
 
-function CreatePost() {
-  //const { authState } = useContext(AuthContext);
+function UpdatePost() {
   const [image, setImage] = useState("");
+  let { id } = useParams();
+  const [postObject, setPostObject] = useState({});
 
   let history = useHistory();
   const initialValues = {
@@ -17,10 +16,12 @@ function CreatePost() {
   };
 
   useEffect(() => {
-    if (!localStorage.getItem("accessToken")) {
-      history.push("/login");
-    }
-  }, [history]);
+    //`https://git.heroku.com/groupomania-git504.git/posts/byId/${id}`
+    axios.get(`http://localhost:3001/posts/byId/${id}`).then((response) => {
+      //console.log(response.data);
+      setPostObject(response.data);
+    });
+  }, [id]);
 
   const validationSchema = Yup.object().shape({
     title: Yup.string().min(1).max(33).required("a title is needed 😉"),
@@ -35,7 +36,7 @@ function CreatePost() {
 
     axios
       //"https://git.heroku.com/groupomania-git504.git/posts"
-      .post("http://localhost:3001/posts", formData, {
+      .put(`http://localhost:3001/posts/postText/${id}`, formData, {
         headers: { accessToken: localStorage.getItem("accessToken") },
       })
       .then((response) => {
@@ -58,6 +59,14 @@ function CreatePost() {
           action="/postimg"
           encType="multipart/form-data"
         >
+          {postObject.image !== null && (
+            <img
+              className="thumbnail"
+              src={`http://localhost:3001/${postObject.image}`}
+              alt="img from a post"
+            />
+          )}
+
           <label>title</label>
           <ErrorMessage name="title" component="span" />
           <Field
@@ -65,7 +74,8 @@ function CreatePost() {
             autoComplete="off"
             className="inputCreatePost "
             name="title"
-            placeholder="Insert your title ..."
+            placeholder={postObject.title}
+            //value={initialValues.title}
           />
           <label>post</label>
           <ErrorMessage name="postText" component="span" />
@@ -73,14 +83,15 @@ function CreatePost() {
             as="textarea"
             autoComplete="off"
             className="inputCreatePost textAreaPost"
-            placeholder="📝 Type a message ..."
+            placeholder={postObject.postText}
+            //value={initialValues.postText}
             name="postText"
             id=""
             cols="30"
             rows="15"
           ></Field>
           <div>
-            <label htmlFor="file">📷</label>
+            <label htmlFor="file">📷 da pic</label>
             <input
               id="file"
               className="btn"
@@ -90,7 +101,7 @@ function CreatePost() {
               onChange={(e) => setImage(e.target.files[0])}
             />
             <button className="btn" type="submit">
-              SEND
+              UPDATE POST
             </button>
           </div>
         </Form>
@@ -99,4 +110,4 @@ function CreatePost() {
   );
 }
 
-export default CreatePost;
+export default UpdatePost;

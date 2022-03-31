@@ -19,6 +19,8 @@ function Post() {
   const [newComment, setNewComment] = useState({ commentText: "", id: null });
   const { authState } = useContext(AuthContext);
   const [updatePostText, setupdatePostText] = useState("");
+  const [postImage, setPostImage] = useState("");
+
   const [onModif, setOnModif] = useState(false);
 
   const adminRole = authState.role === "admin";
@@ -29,7 +31,10 @@ function Post() {
   useEffect(() => {
     //`https://git.heroku.com/groupomania-git504.git/posts/byId/${id}`
     axios.get(`http://localhost:3001/posts/byId/${id}`).then((response) => {
+      console.log(response.data);
       setPostObject(response.data);
+      setPostImage(response.data.image);
+      console.log(postImage);
     });
 
     //`https://git.heroku.com/groupomania-git504.git/comments/${id}`
@@ -151,63 +156,63 @@ function Post() {
             >
               {" "}
               <div>
-                <img
-                  className="thumbnail"
-                  src={`http://localhost:3001/${postObject.image}`}
-                  alt="img from a post"
-                />
+                {postObject.image !== null && (
+                  <img
+                    className="thumbnail"
+                    src={`http://localhost:3001/${postImage}`}
+                    alt="img from a post"
+                  />
+                )}
                 <p> {postObject.postText}</p>
               </div>
-
-            {onModif && (
-              <div className="modifPOst">
-                <textarea
-                  className="modifPOstArea"
-                  placeholder="Say something about this..."
-                  autoComplete="off"
-                  cols="30"
-                  rows="3"
-                  value={updatePostText}
-                  // placeholder="*** recycle da post ***"
-                  onChange={(e) => {
-                    setupdatePostText(e.target.value);
-                  }}
-                />{" "}
-                <div className="modifPOstBtn">
-                  <button
-                    className="smallBtn"
-                    onClick={() => {
-                      if (
-                        authState.username === postObject.username ||
-                        adminRole === true
-                      ) {
-                        editPost(updatePostText);
-                        setOnModif(false);
-                        setupdatePostText("");
-                      }
+              {onModif && (
+                <div className="modifPOst">
+                  <textarea
+                    className="modifPOstArea"
+                    placeholder="Say something about this..."
+                    autoComplete="off"
+                    cols="30"
+                    rows="3"
+                    value={updatePostText}
+                    // placeholder="*** recycle da post ***"
+                    onChange={(e) => {
+                      setupdatePostText(e.target.value);
                     }}
-                  >
-                    ♻️
-                  </button>
-                  <button
-                    className="smallBtn"
-                    onClick={() => {
-                      if (
-                        authState.username === postObject.username ||
-                        adminRole === true
-                      ) {
-                        setOnModif(false);
-                        setupdatePostText("");
-                      }
-                    }}
-                  >
-                    🔀
-                  </button>
+                  />{" "}
+                  <div className="modifPOstBtn">
+                    <button
+                      className="smallBtn"
+                      onClick={() => {
+                        if (
+                          authState.username === postObject.username ||
+                          adminRole === true
+                        ) {
+                          editPost(updatePostText);
+                          setOnModif(false);
+                          setupdatePostText("");
+                        }
+                      }}
+                    >
+                      ♻️
+                    </button>
+                    <button
+                      className="smallBtn"
+                      onClick={() => {
+                        if (
+                          authState.username === postObject.username ||
+                          adminRole === true
+                        ) {
+                          setOnModif(false);
+                          setupdatePostText("");
+                        }
+                      }}
+                    >
+                      🔀
+                    </button>
+                  </div>
                 </div>
-                </div>
-
-)}
-</div>
+              )}
+            </div>
             <div className="footer">
               from {postObject.username}
               {authState.username === postObject.username ||

@@ -84,8 +84,9 @@ router.post("/login", async (req, res) => {
 });
 
 router.get("/auth", validateToken, (req, res) => {
+
   res.json(req.user);
-  console.log(res.json(req.user));
+  console.log(req.user);
 });
 
 router.get("/basicinfo/:id", async (req, res) => {
