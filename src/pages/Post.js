@@ -26,13 +26,13 @@ function Post() {
 
   useEffect(() => {
     axios
-      .get(`https://git.heroku.com/groupomania-git504.git/posts/byId/${id}`)
+      .get(`https://groupomania-git504.herokuapp.com/posts/byId/${id}`)
       .then((response) => {
         console.log(response.data);
         setPostObject(response.data);
       });
     axios
-      .get(`https://git.heroku.com/groupomania-git504.git/comments/${id}`)
+      .get(`https://groupomania-git504.herokuapp.com/comments/${id}`)
       .then((response) => {
         setComments(response.data);
       });
@@ -46,7 +46,7 @@ function Post() {
     } else {
       axios
         .post(
-          "https://git.heroku.com/groupomania-git504.git/comments",
+          "https://groupomania-git504.herokuapp.com/comments",
           {
             commentBody: newComment.commentText,
             PostId: id,
@@ -74,7 +74,7 @@ function Post() {
 
   const deleteComment = (id) => {
     axios
-      .delete(`https://git.heroku.com/groupomania-git504.git/comments/${id}`, {
+      .delete(`https://groupomania-git504.herokuapp.com/comments/${id}`, {
         headers: { accessToken: localStorage.getItem("accessToken") },
       })
       .then(() => {
@@ -88,7 +88,7 @@ function Post() {
 
   const deletePost = (id) => {
     axios
-      .delete(`https://git.heroku.com/groupomania-git504.git/posts/${id}`, {
+      .delete(`https://groupomania-git504.herokuapp.com/posts/${id}`, {
         headers: { accessToken: localStorage.getItem("accessToken") },
       })
       .then(() => {
