@@ -123,7 +123,7 @@ function Post() {
                 {postObject.image !== null && (
                   <img
                     className="thumbnail"
-                    src={`http://localhost:3001/${postObject.image}`}
+                    src={`https://groupomania-git504.herokuapp.com/${postObject.image}`}
                     alt="img from a post"
                   />
                 )}
