@@ -76,7 +76,7 @@ function App() {
               ) : (
                 <>
                   <Link to="/">
-                    <div className="logo">Groupomania</div>{" "}
+                    <div>Groupomania</div>{" "}
                   </Link>
                   <Link to="/createpost">Post</Link>
                 </>

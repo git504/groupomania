@@ -35,7 +35,7 @@ function UpdatePost() {
     formData.append("postText", data.postText);
 
     axios
-      //"https://git.heroku.com/groupomania-git504.git/posts"
+      //`https://git.heroku.com/groupomania-git504.git/posts/${id}`
       .put(`http://localhost:3001/posts/${id}`, formData, {
         headers: { accessToken: localStorage.getItem("accessToken") },
       })

@@ -18,7 +18,7 @@ function Profile() {
 
   const deleteUser = () => {
     axios
-      //"https://git.heroku.com/groupomania-git504.git/posts"
+      //`https://git.heroku.com/groupomania-git504.git/auth/deleteuser/${id}`
       .delete(`http://localhost:3001/auth/deleteuser/${id}`, {
         headers: { accessToken: localStorage.getItem("accessToken") },
       })
