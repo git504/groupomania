@@ -1,4 +1,4 @@
-import React, { useEffect,useLayoutEffect, useState } from "react";
+import React, { useEffect, useLayoutEffect, useState } from "react";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
 import axios from "axios";
@@ -23,7 +23,6 @@ function UpdatePost() {
     });
   }, [id]);
 
-
   const validationSchema = Yup.object().shape({
     title: Yup.string().min(1).max(33).required("a title is needed 😉"),
     postText: Yup.string().min(1).max(150).required("a post is needed 🔤"),
@@ -41,7 +40,7 @@ function UpdatePost() {
         headers: { accessToken: localStorage.getItem("accessToken") },
       })
       .then((response) => {
-        console.log(response)
+        console.log(response);
         history.push("/");
       });
   };
@@ -50,9 +49,9 @@ function UpdatePost() {
       <Formik
         enableReinitialize={true}
         initialValues={{
-        title: postObject?.title ?? "",
-        postText: postObject?.postText ?? ""
-       }}
+          title: postObject?.title ?? "",
+          postText: postObject?.postText ?? "",
+        }}
         onSubmit={onSubmit}
         method="PUT"
         encType="multipart/form-data"
@@ -63,9 +62,8 @@ function UpdatePost() {
           method="PUT"
           action="/postimg"
           encType="multipart/form-data"
-          
         >
-          {postObject.image !== undefined && (
+          {postObject.image !== null && (
             <img
               className="thumbnail"
               src={`http://localhost:3001/${postObject.image}`}
