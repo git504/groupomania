@@ -86,7 +86,7 @@ function Home() {
                 {value.image !== null && (
                   <img
                     className="thumbnail"
-                    src={`http://localhost:3001/${value.image}`}
+                    src={`https://groupomania-git504.herokuapp.com/${value.image}`}
                     alt="img from a post"
                   />
                 )}
