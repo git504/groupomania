@@ -25,12 +25,14 @@ app.use("/likes", likesRouter);
 app.use("/images", express.static("./images"));
 //app.use("/images", express.static(path.join(__dirname, "images")))
 
+
+
 db.sequelize
   .sync()
   .then(() => {
-    app.listen(process.env.PORT, () => {
-      console.log("SERVER RUNNING ON PORT " + port);
-    });
+    app.listen(process.env.PORT || 3000, function(){
+  console.log("Express server listening on port %d in %s mode", this.address().port, app.settings.env);
+});
   })
   .catch((err) => {
     console.log(err);
