@@ -323,7 +323,9 @@ span {
     justify-content: center;
   }
 
-
+  /* .signupButton {
+    max-width: 50px;
+  } */
   .loginContainer {
     width: 5px;
     margin: auto;
@@ -567,7 +569,7 @@ button:hover {
 
 .loginContainer input,
 button {
-  width: clamp(30vw, 15vw, 200px);
+  width: 33vw;
   height: 50px;
   border-radius: 8px;
   border: none;
