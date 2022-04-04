@@ -18,7 +18,7 @@ function Home() {
     } else {
       axios
 
-        .get("https://groupomania-git504.herokuapp.com/", {
+        .get("https://groupomania-git504.herokuapp.com/posts", {
           headers: { accessToken: localStorage.getItem("accessToken") },
         })
         .then((response) => {
