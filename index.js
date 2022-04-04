@@ -28,7 +28,7 @@ app.use("/images", express.static("./images"));
 db.sequelize
   .sync()
   .then(() => {
-    app.listen(process.env.PORT || "3001", () => {
+    app.listen(process.env.PORT, () => {
       console.log("SERVER RUNNING ON PORT " + port);
     });
   })
