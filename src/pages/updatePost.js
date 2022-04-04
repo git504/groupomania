@@ -1,4 +1,4 @@
-import React, { useEffect,useLayoutEffect, useState } from "react";
+import React, { useEffect, useLayoutEffect, useState } from "react";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
 import axios from "axios";
@@ -16,13 +16,13 @@ function UpdatePost() {
   };
 
   useEffect(() => {
-    //`https://git.heroku.com/groupomania-git504.git/posts/byId/${id}`
-    axios.get(`http://localhost:3001/posts/byId/${id}`).then((response) => {
-      //console.log(response.data);
-      setPostObject(response.data);
-    });
+    axios
+      .get(`https://git.heroku.com/groupomania-git504.git/posts/byId/${id}`)
+      .then((response) => {
+        //console.log(response.data);
+        setPostObject(response.data);
+      });
   }, [id]);
-
 
   const validationSchema = Yup.object().shape({
     title: Yup.string().min(1).max(33).required("a title is needed 😉"),
@@ -36,12 +36,15 @@ function UpdatePost() {
     formData.append("postText", data.postText);
 
     axios
-      //"https://git.heroku.com/groupomania-git504.git/posts"
-      .put(`http://localhost:3001/posts/${id}`, formData, {
-        headers: { accessToken: localStorage.getItem("accessToken") },
-      })
+      .put(
+        `https://git.heroku.com/groupomania-git504.git/posts/${id}`,
+        formData,
+        {
+          headers: { accessToken: localStorage.getItem("accessToken") },
+        }
+      )
       .then((response) => {
-        console.log(response)
+        console.log(response);
         history.push("/");
       });
   };
@@ -50,9 +53,9 @@ function UpdatePost() {
       <Formik
         enableReinitialize={true}
         initialValues={{
-        title: postObject?.title ?? "",
-        postText: postObject?.postText ?? ""
-       }}
+          title: postObject?.title ?? "",
+          postText: postObject?.postText ?? "",
+        }}
         onSubmit={onSubmit}
         method="PUT"
         encType="multipart/form-data"
@@ -63,7 +66,6 @@ function UpdatePost() {
           method="PUT"
           action="/postimg"
           encType="multipart/form-data"
-          
         >
           {postObject.image !== undefined && (
             <img

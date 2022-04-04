@@ -29,17 +29,16 @@ function CreatePost() {
 
   const onSubmit = (data) => {
     const formData = new FormData();
-    console.log(image)
+    console.log(image);
     formData.append("image", image);
     formData.append("title", data.title);
     formData.append("postText", data.postText);
 
-    for(var pair of formData.entries()) {
-   console.log(pair[0]+ ', '+ pair[1]);
+    for (var pair of formData.entries()) {
+      console.log(pair[0] + ", " + pair[1]);
     }
     axios
-      //"https://git.heroku.com/groupomania-git504.git/posts"
-      .post("http://localhost:3001/posts", formData, {
+      .post("https://git.heroku.com/groupomania-git504.git/posts", formData, {
         headers: { accessToken: localStorage.getItem("accessToken") },
       })
       .then((response) => {

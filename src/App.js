@@ -30,8 +30,7 @@ function App() {
 
   useEffect(() => {
     axios
-      //"https://git.heroku.com/groupomania-git504.git/auth/auth"
-      .get("http://localhost:3001/auth/auth", {
+      .get("https://git.heroku.com/groupomania-git504.git/auth/auth", {
         headers: {
           accessToken: localStorage.getItem("accessToken"),
         },
