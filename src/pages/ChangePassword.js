@@ -10,7 +10,7 @@ function ChangePassword() {
   const changePassword = () => {
     axios
       .put(
-        `https://git.heroku.com/groupomania-git504.git/auth/changepassword/${id}`,
+        `https://groupomania-git504.herokuapp.com/auth/changepassword/${id}`,
         {
           oldPassword: oldPassword,
           newPassword: newPassword,
