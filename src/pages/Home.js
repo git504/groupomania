@@ -18,7 +18,7 @@ function Home() {
     } else {
       axios
 
-        .get("https://git.heroku.com/groupomania-git504.git/posts", {
+        .get("https://groupomania-git504.herokuapp.com/", {
           headers: { accessToken: localStorage.getItem("accessToken") },
         })
         .then((response) => {
@@ -37,7 +37,7 @@ function Home() {
   const likeAPost = (postId) => {
     axios
       .post(
-        "https://git.heroku.com/groupomania-git504.git/likes",
+        "https://groupomania-git504.herokuapp.com/likes",
         { PostId: postId },
         { headers: { accessToken: localStorage.getItem("accessToken") } }
       )
