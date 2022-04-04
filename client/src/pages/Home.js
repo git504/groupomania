@@ -74,8 +74,6 @@ function Home() {
   return (
     <div className="listofposts">
       {listOfPosts.map((value, key) => {
-        // let date = value.createdAt;
-        //console.log(value.image);
 
         return (
           <div key={key} className="post">

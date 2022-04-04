@@ -33,20 +33,22 @@ router.get("/byuserId/:id", async (req, res) => {
 
 //images
 router.put("/:id", validateToken, upload, async (req, res) => {
+  console.log("bonjourrrrrrrrrrrrrrrrrrrrrrrrrrooooooooooooooooooooooooooooo")
   const postid = req.params.id;
-  const id = req.body;
   const post = req.body;
-  post.image = req.file?.path;
   post.username = req.user.username;
   post.UserId = req.user.id;
-
-  await Posts.update({
+  post.image = req.file?.path;
+ 
+  await Posts.update(post,{
     where: {
       id: postid,
     },
-  });
-  console.log("-----> POST-ID" + postid);
-  res.json(post);
+  }).then(()=>{
+      res.status(200).json("Post modifié avec succès");
+  }).catch(err => res.status(400).json(err.response));
+ 
+
 });
 
 router.post("/", validateToken, upload, async (req, res) => {
@@ -54,8 +56,11 @@ router.post("/", validateToken, upload, async (req, res) => {
   post.username = req.user.username;
   post.UserId = req.user.id;
   post.image = req.file.path;
-  await Posts.create(post);
-  res.json(post);
+  await Posts.create(post).then(()=>{
+      res.status(200).json(post);
+  }).catch(err => res.status(400).json(err.response));
+ 
+  // res.json(post);
 });
 
 // https://openclassrooms.com/fr/courses/6390246-passez-au-full-stack-avec-node-js-express-et-mongodb/6466697-developpez-la-fonction-delete-du-back-end

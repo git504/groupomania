@@ -59,7 +59,7 @@ function Registration() {
             placeholder="🔐️ 3615 code qui n'en veut"
           />
 
-          <button type="submit">SignUp</button>
+          <button type="submit">SignIn</button>
         </Form>
       </Formik>
       <div>{infos}</div>

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect,useLayoutEffect, useState } from "react";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
 import axios from "axios";
@@ -23,6 +23,7 @@ function UpdatePost() {
     });
   }, [id]);
 
+
   const validationSchema = Yup.object().shape({
     title: Yup.string().min(1).max(33).required("a title is needed 😉"),
     postText: Yup.string().min(1).max(150).required("a post is needed 🔤"),
@@ -40,14 +41,18 @@ function UpdatePost() {
         headers: { accessToken: localStorage.getItem("accessToken") },
       })
       .then((response) => {
+        console.log(response)
         history.push("/");
       });
   };
-
   return (
     <div className="createPostPage">
       <Formik
-        initialValues={initialValues}
+        enableReinitialize={true}
+        initialValues={{
+        title: postObject?.title ?? "",
+        postText: postObject?.postText ?? ""
+       }}
         onSubmit={onSubmit}
         method="PUT"
         encType="multipart/form-data"
@@ -58,8 +63,9 @@ function UpdatePost() {
           method="PUT"
           action="/postimg"
           encType="multipart/form-data"
+          
         >
-          {postObject.image !== null && (
+          {postObject.image !== undefined && (
             <img
               className="thumbnail"
               src={`http://localhost:3001/${postObject.image}`}
@@ -74,8 +80,6 @@ function UpdatePost() {
             autoComplete="off"
             className="inputCreatePost "
             name="title"
-            placeholder={postObject.title}
-            //value={initialValues.title}
           />
           <label>post</label>
           <ErrorMessage name="postText" component="span" />
@@ -83,8 +87,6 @@ function UpdatePost() {
             as="textarea"
             autoComplete="off"
             className="inputCreatePost textAreaPost"
-            placeholder={postObject.postText}
-            //value={initialValues.postText}
             name="postText"
             id=""
             cols="30"

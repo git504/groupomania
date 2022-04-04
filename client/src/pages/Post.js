@@ -121,7 +121,7 @@ function Post() {
             >
               {" "}
               <div>
-                {postObject.image !== null && (
+                {postObject.image !== undefined && (
                   <img
                     className="thumbnail"
                     src={`http://localhost:3001/${postObject.image}`}
