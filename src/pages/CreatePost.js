@@ -39,7 +39,7 @@ function CreatePost() {
     }
     axios
 
-      .post("https://git.heroku.com/groupomania-git504.git/posts", formData, {
+      .post("https://groupomania-git504.herokuapp.com/posts", formData, {
         headers: { accessToken: localStorage.getItem("accessToken") },
       })
       .then((response) => {
