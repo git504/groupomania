@@ -48,7 +48,7 @@ function App() {
           });
         }
       });
-  }, []);
+  }, );
 
   // https://github.com/facebook/react/issues/14920
 
