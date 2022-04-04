@@ -19,7 +19,7 @@ function Registration() {
 
   const onSubmit = (data) => {
     axios
-      .post("https://git.heroku.com/groupomania-git504.git/auth", data)
+      .post("https://groupomania-git504.herokuapp.com/auth", data)
       .then((res) => {
         console.log(res);
         setInfos(res.data.msg);
