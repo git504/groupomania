@@ -14,7 +14,7 @@ function UpdatePost() {
 
   useEffect(() => {
     axios
-      .get(`https://git.heroku.com/groupomania-git504.git/posts/byId/${id}`)
+      .get(`https://groupomania-git504.herokuapp.com/posts/byId/${id}`)
       .then((response) => {
         //console.log(response.data);
         setPostObject(response.data);
@@ -34,7 +34,7 @@ function UpdatePost() {
 
     axios
       .put(
-        `https://git.heroku.com/groupomania-git504.git/posts/${id}`,
+        `https://groupomania-git504.herokuapp.com/posts/${id}`,
         formData,
         {
           headers: { accessToken: localStorage.getItem("accessToken") },
@@ -64,7 +64,7 @@ function UpdatePost() {
           {postObject.image !== null && (
             <img
               className="thumbnail"
-              src={`http://localhost:3001/${postObject.image}`}
+              src={`https://groupomania-git504.herokuapp.com/${postObject.image}`}
               alt="img from a post"
             />
           )}
