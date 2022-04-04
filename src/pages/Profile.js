@@ -19,7 +19,7 @@ function Profile() {
   const deleteUser = () => {
     axios
       .delete(
-        `https://git.heroku.com/groupomania-git504.git/auth/deleteuser/${id}`,
+        `https://groupomania-git504.herokuapp.com/auth/deleteuser/${id}`,
         {
           headers: { accessToken: localStorage.getItem("accessToken") },
         }
@@ -34,13 +34,13 @@ function Profile() {
 
   useEffect(() => {
     axios
-      .get(`https://git.heroku.com/groupomania-git504.git/auth/basicinfo/${id}`)
+      .get(`https://groupomania-git504.herokuapp.com/auth/basicinfo/${id}`)
       .then((response) => {
         setUsername(response.data.username);
         setProfileRole(response.data.role);
       });
     axios
-      .get(`https://git.heroku.com/groupomania-git504.git/posts/byuserId/${id}`)
+      .get(`https://groupomania-git504.herokuapp.com/posts/byuserId/${id}`)
       .then((response) => {
         setListOfPosts(response.data);
       });
@@ -93,7 +93,7 @@ function Profile() {
                   {/* {value.image !== null && (
                   <img
                     className="thumbnail"
-                    src={`http://localhost:3001/${value.image}`}
+                    src={`https://groupomania-git504.herokuapp.com/${value.image}`}
                     alt="img from a post"
                   />
                 )} */}
@@ -101,7 +101,7 @@ function Profile() {
                   {value.image ? (
                     <img
                       className="thumbnail"
-                      src={`http://localhost:3001/${value.image}`}
+                      src={`https://groupomania-git504.herokuapp.com/${value.image}`}
                       alt="img from a post"
                     />
                   ) : (
