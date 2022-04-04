@@ -18,10 +18,12 @@ function Profile() {
 
   const deleteUser = () => {
     axios
-      //`https://git.heroku.com/groupomania-git504.git/auth/deleteuser/${id}`
-      .delete(`http://localhost:3001/auth/deleteuser/${id}`, {
-        headers: { accessToken: localStorage.getItem("accessToken") },
-      })
+      .delete(
+        `https://git.heroku.com/groupomania-git504.git/auth/deleteuser/${id}`,
+        {
+          headers: { accessToken: localStorage.getItem("accessToken") },
+        }
+      )
       .then((response) => {
         console.log(response);
         setAuthState({ username: "", id: 0, role: "", status: false });
@@ -31,15 +33,17 @@ function Profile() {
   };
 
   useEffect(() => {
-    //`https://git.heroku.com/groupomania-git504.git/auth/basicinfo/${id}`
-    axios.get(`http://localhost:3001/auth/basicinfo/${id}`).then((response) => {
-      setUsername(response.data.username);
-      setProfileRole(response.data.role);
-    });
-    //`https://git.heroku.com/groupomania-git504.git/posts/byuserId/${id}`
-    axios.get(`http://localhost:3001/posts/byuserId/${id}`).then((response) => {
-      setListOfPosts(response.data);
-    });
+    axios
+      .get(`https://git.heroku.com/groupomania-git504.git/auth/basicinfo/${id}`)
+      .then((response) => {
+        setUsername(response.data.username);
+        setProfileRole(response.data.role);
+      });
+    axios
+      .get(`https://git.heroku.com/groupomania-git504.git/posts/byuserId/${id}`)
+      .then((response) => {
+        setListOfPosts(response.data);
+      });
   }, [id]);
 
   return (

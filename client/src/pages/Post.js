@@ -25,15 +25,17 @@ function Post() {
   let history = useHistory();
 
   useEffect(() => {
-    //`https://git.heroku.com/groupomania-git504.git/posts/byId/${id}`
-    axios.get(`http://localhost:3001/posts/byId/${id}`).then((response) => {
-      console.log(response.data);
-      setPostObject(response.data);
-    });
-    //`https://git.heroku.com/groupomania-git504.git/comments/${id}`
-    axios.get(`http://localhost:3001/comments/${id}`).then((response) => {
-      setComments(response.data);
-    });
+    axios
+      .get(`https://git.heroku.com/groupomania-git504.git/posts/byId/${id}`)
+      .then((response) => {
+        console.log(response.data);
+        setPostObject(response.data);
+      });
+    axios
+      .get(`https://git.heroku.com/groupomania-git504.git/comments/${id}`)
+      .then((response) => {
+        setComments(response.data);
+      });
   }, [id]);
 
   const addComment = () => {
@@ -44,8 +46,7 @@ function Post() {
     } else {
       axios
         .post(
-          //"https://git.heroku.com/groupomania-git504.git/comments"
-          "http://localhost:3001/comments",
+          "https://git.heroku.com/groupomania-git504.git/comments",
           {
             commentBody: newComment.commentText,
             PostId: id,
@@ -73,8 +74,7 @@ function Post() {
 
   const deleteComment = (id) => {
     axios
-      //`https://git.heroku.com/groupomania-git504.git/comments/${id}`
-      .delete(`http://localhost:3001/comments/${id}`, {
+      .delete(`https://git.heroku.com/groupomania-git504.git/comments/${id}`, {
         headers: { accessToken: localStorage.getItem("accessToken") },
       })
       .then(() => {
@@ -88,8 +88,7 @@ function Post() {
 
   const deletePost = (id) => {
     axios
-      //`https://git.heroku.com/groupomania-git504.git/posts/${id}`
-      .delete(`http://localhost:3001/posts/${id}`, {
+      .delete(`https://git.heroku.com/groupomania-git504.git/posts/${id}`, {
         headers: { accessToken: localStorage.getItem("accessToken") },
       })
       .then(() => {

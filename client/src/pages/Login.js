@@ -26,25 +26,26 @@ function Login() {
 
   const login = () => {
     const data = { username: username, password: password, role: role };
-    //"https://git.heroku.com/groupomania-git504.git//auth/login"
-    axios.post("http://localhost:3001/auth/login", data).then((response) => {
-      //console.log(response.data.error);
-      if (response.data.error) {
-        alert(response.data.error);
-      } else {
-        localStorage.setItem("accessToken", response.data.token);
-        //console.log(response.data);
-        setAuthState({
-          username: response.data.username,
-          id: response.data.id,
-          role: response.data.role,
-          status: true,
-        });
-        setRole(response.data.role);
-        //console.log(role);
-        history.push("/");
-      }
-    });
+    axios
+      .post("https://git.heroku.com/groupomania-git504.git/auth/login", data)
+      .then((response) => {
+        //console.log(response.data.error);
+        if (response.data.error) {
+          alert(response.data.error);
+        } else {
+          localStorage.setItem("accessToken", response.data.token);
+          //console.log(response.data);
+          setAuthState({
+            username: response.data.username,
+            id: response.data.id,
+            role: response.data.role,
+            status: true,
+          });
+          setRole(response.data.role);
+          //console.log(role);
+          history.push("/");
+        }
+      });
   };
 
   return (
