@@ -74,7 +74,6 @@ function Home() {
   return (
     <div className="listofposts">
       {listOfPosts.map((value, key) => {
-
         return (
           <div key={key} className="post">
             <div className="title"> {value.title} </div>
