@@ -1,19 +1,8 @@
 const express = require("express");
 const app = express();
 
-const normalizePort = (val) => {
-  const port = parseInt(val, 10);
 
-  if (isNaN(port)) {
-    return val;
-  }
-  if (port >= 0) {
-    return port;
-  }
-  return false;
-};
 
-const port = normalizePort(process.env.PORT || "3001");
 const cors = require("cors");
 require("dotenv").config();
 
@@ -39,7 +28,7 @@ app.use("/images", express.static("./images"));
 db.sequelize
   .sync()
   .then(() => {
-    app.listen(port, () => {
+    app.listen(process.env.PORT || "3001", () => {
       console.log("SERVER RUNNING ON PORT " + port);
     });
   })
