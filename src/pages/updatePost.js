@@ -1,4 +1,4 @@
-import React, { useEffect, useLayoutEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
 import axios from "axios";
@@ -10,10 +10,7 @@ function UpdatePost() {
   const [postObject, setPostObject] = useState({});
 
   let history = useHistory();
-  const initialValues = {
-    title: "",
-    postText: "",
-  };
+ 
 
   useEffect(() => {
     axios
@@ -52,10 +49,7 @@ function UpdatePost() {
     <div className="createPostPage">
       <Formik
         enableReinitialize={true}
-        initialValues={{
-          title: postObject?.title ?? "",
-          postText: postObject?.postText ?? "",
-        }}
+       
         onSubmit={onSubmit}
         method="PUT"
         encType="multipart/form-data"
