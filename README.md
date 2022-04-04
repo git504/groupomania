@@ -1,64 +1,70 @@
-# groupomania
+# Getting Started with Create React App
 
-Build Your Own Social Media Using Express, Hooks, & MySQL || Postgres for the employees of **Groupomania**.
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-- [⏩ Checklist of requirements](https://github.com/git504/groupomania/blob/main/public/Openclassrooms/spec/spec.md "done, Checklist")
-- [⏩ GROUPOMANIA WEBSITE](https://git.heroku.com/groupomania-git504.git "GROUPOMANIA, netlify")
+## Available Scripts
 
-![logo](./public//Openclassrooms/images/icon-left-font.png "logo, GROUPOMANIA")
+In the project directory, you can run:
 
-## What is PERN Stack?
+### `npm start`
 
-This stack consists of **MySQL || Postgres, Express, React and Node.js**.
+Runs the app in the development mode.\
+Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
-Combining these techs, one can build a full-stack web app with **CRUD** operations on a **MVC** model-view-controller architecture.
+The page will reload when you make changes.\
+You may also see any lint errors in the console.
 
-## ☑️ To sum up :
+### `npm test`
 
-- React front-end
-- **RESTful API** with Node & Express, MySQL & Sequelize
+Launches the test runner in the interactive watch mode.\
+See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-## **⏩** Set up directory
+### `npm run build`
 
-The **client** directory contains the React code.
+Builds the app for production to the `build` folder.\
+It correctly bundles React in production mode and optimizes the build for the best performance.
 
-The **server** directory contains the code for the node.js express server.
+The build is minified and the filenames include the hashes.\
+Your app is ready to be deployed!
 
-`cd` into both Project Directories in 2 different terminal windows and then install the dependencies.
+See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-#### 1st window
+### `npm run eject`
 
-    cd client
-    npm install
+**Note: this is a one-way operation. Once you `eject`, you can't go back!**
 
-#### 2nd window
+If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
 
-    cd server
-    npm install
+Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
 
-## 💻 Run both the server and client at the same time
+You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
 
-#### 1st window
+## Learn More
 
-    npm start
-    *** runs react at localhost:3000 ***
+You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
-#### 2nd window
+To learn React, check out the [React documentation](https://reactjs.org/).
 
-    npm run devStart
-    *** devStart runs nodemon at localhost:3001 ***
+### Code Splitting
 
-then connect your **SQL** database with `server/config/config.js`
+This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
 
-## 📪 Contact the newbie
+### Analyzing the Bundle Size
 
-- [cheapskatePortfolio](https://git504.github.io/cheapskatePortfolio/ "contact me, WEB.DEV")
-- [underdogFoto](https://git504.github.io/underdogF/ "card, FOTO")
+This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
 
-## 🙏🏿 Many thanks
+### Making a Progressive Web App
 
-**THANKIE** to my **full-stack coach** **🇧🇯 👑 👌🏿Amouzoun O. Bienvenu**, to openclassrooms and to my professional career advisor
+This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
 
-- [☀︎ His gitHub](https://github.com/benytto888Z "Amouzoun O. Bienvenu, OPENCLASSROOMS")
-- [☀︎ His linkedIn](https://www.linkedin.com/in/omonleye-amouzoun-416015130/ "Amouzoun O. Bienvenu, LINKEDIN")
-- [☀︎ His homePage](https://creamind.fr/ "Amouzoun O. Bienvenu, WEBSITE")
+### Advanced Configuration
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+
+### Deployment
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+
+### `npm run build` fails to minify
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
