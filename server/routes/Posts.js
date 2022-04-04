@@ -39,7 +39,7 @@ router.put("/:id", validateToken, upload, async (req, res) => {
   post.username = req.user.username;
   post.UserId = req.user.id;
   post.image = req.file?.path;
- 
+
   await Posts.update(post,{
     where: {
       id: postid,
@@ -47,7 +47,7 @@ router.put("/:id", validateToken, upload, async (req, res) => {
   }).then(()=>{
       res.status(200).json("Post modifié avec succès");
   }).catch(err => res.status(400).json(err.response));
- 
+
 
 });
 
@@ -55,11 +55,11 @@ router.post("/", validateToken, upload, async (req, res) => {
   const post = req.body;
   post.username = req.user.username;
   post.UserId = req.user.id;
-  post.image = req.file.path;
+  post.image = req.file?.path;
   await Posts.create(post).then(()=>{
       res.status(200).json(post);
   }).catch(err => res.status(400).json(err.response));
- 
+
   // res.json(post);
 });
 
